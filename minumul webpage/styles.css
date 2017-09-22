@@ -60,7 +60,7 @@ button::-moz-focus-inner {
     border: 0;
     padding: 0;
 }
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */@media print {
+@media print {
     *, *: before, *:after {
     background: transparent !important;
     color: #000 !important;
@@ -545,12 +545,8 @@ ul {
     .hidden-xs {
     display: none !important;
 }
-}/*!
- * animate.css -http://daneden.me/animate
- * Version - 3.5.1
- * Licensed under the MIT license - http://opensource.org/licenses/MIT
- *
- * Copyright (c) 2016 ?
+}/*
+  Copyright (c) 2016 Elias Mekuria
  */
 
 
