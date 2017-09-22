@@ -2,7 +2,9 @@
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter,  Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- *//*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */html {
+ *//*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+ html * {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%}
@@ -184,6 +186,7 @@ p {
 @media (min-width: 768px) {
     .lead {
     font-size: 24px;
+    max-width: inherit;
 }
 }small {
     font-size: 87%}
@@ -192,6 +195,7 @@ p {
 }
 .text-center {
     text-align: center;
+    margin-bottom: 100px;
 }
 .text-uppercase {
     text-transform: uppercase;
@@ -546,78 +550,10 @@ ul {
  * Version - 3.5.1
  * Licensed under the MIT license - http://opensource.org/licenses/MIT
  *
- * Copyright (c) 2016 Daniel Eden
+ * Copyright (c) 2016 ?
  */
-@font-face {
-    font-family: 'museo-sans-rounded';
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-100-webfont-40acb3b708d702ad33a412aa66c1faa26d4bc61872e1060ada6821bbe438d455.eot);
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-100-webfont-40acb3b708d702ad33a412aa66c1faa26d4bc61872e1060ada6821bbe438d455.eot?#iefix) format("embedded-opentype"), url(/assets/museo-sans-rounded/MuseoSansRounded-100-webfont-84ac8c5d77e7b949371579f20ba555a185def68c52bd29c488924fc97d58241e.woff2) format("woff2"), url(/assets/museo-sans-rounded/MuseoSansRounded-100-webfont-9c84076016c8ce88356ffc222d29fcf0ed655075e9ad8f2f82d42b7c48564432.woff) format("woff"), url(/assets/museo-sans-rounded/MuseoSansRounded-100-webfont-d310280d9c68f6f265c81879dc0711b59adb9b7b0893c6e0a6306a8a230d716b.ttf) format("truetype"), url(/assets/museo-sans-rounded/MuseoSansRounded-100-webfont-1ea95aa16d8e8f1c49b415c82802cec8be255243aa1ad42b3a4b14aa29f9b48a.svg#museo_sans_rounded100) format("svg");
-    font-weight: 100;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'museo-sans-rounded';
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-100_Italic_22-webfont-63b2b209cdb727d9854ba3da472b117ca312465802468c237ccef0b4d5069efd.eot);
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-100_Italic_22-webfont-63b2b209cdb727d9854ba3da472b117ca312465802468c237ccef0b4d5069efd.eot?#iefix) format("embedded-opentype"), url(/assets/museo-sans-rounded/MuseoSansRounded-100_Italic_22-webfont-098efcab0af2c269760de16b26c0d850c13ed296153f709beb33f6538ec95b3c.woff2) format("woff2"), url(/assets/museo-sans-rounded/MuseoSansRounded-100_Italic_22-webfont-c9cd7705637f8464e183cd17f51c41ed1eca5e048a44098d12f02a2d17464b1c.woff) format("woff"), url(/assets/museo-sans-rounded/MuseoSansRounded-100_Italic_22-webfont-ffdfef502ed41ebfb5cae7925b82e76c48eac760d71d17d97c935975476f1041.ttf) format("truetype"), url(/assets/museo-sans-rounded/MuseoSansRounded-100_Italic_22-webfont-4aa805f12418a255904f8b57ac87f98f194791988bcb946584734222d24bf5e8.svg#museo_sans_rounded100_italic) format("svg");
-    font-weight: 100;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'museo-sans-rounded';
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-300-webfont-99744010c8e5ae76213aa9b11c8f2880b093d477218479cd49196a6aab436385.eot);
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-300-webfont-99744010c8e5ae76213aa9b11c8f2880b093d477218479cd49196a6aab436385.eot?#iefix) format("embedded-opentype"), url(/assets/museo-sans-rounded/MuseoSansRounded-300-webfont-e0067ef79e2002ce2b851ace274ea95a1dafc4b6ca6b3837a700ca4a192c7b89.woff2) format("woff2"), url(/assets/museo-sans-rounded/MuseoSansRounded-300-webfont-f59e137ce2d74a9a5e014cfe2bf15a34454c8a38ea98c1a525b1c3ed86ad5f9a.woff) format("woff"), url(/assets/museo-sans-rounded/MuseoSansRounded-300-webfont-f34cc8dc52bd0250f075d94b191ad2024ba6f96fde141a8d28fa5e9d26a04fe0.ttf) format("truetype"), url(/assets/museo-sans-rounded/MuseoSansRounded-300-webfont-5057c71994b8114dd1d6fd3f8b68eae7253cf3127740e86cac6b61e11d93ab88.svg#museo_sans_rounded300) format("svg");
-    font-weight: 300;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'museo-sans-rounded';
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-300_Italic_22-webfont-7db23f234d88e8ad27ec37bdde13139979f267273b05c2f7dbf1c221b7391d4a.eot);
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-300_Italic_22-webfont-7db23f234d88e8ad27ec37bdde13139979f267273b05c2f7dbf1c221b7391d4a.eot?#iefix) format("embedded-opentype"), url(/assets/museo-sans-rounded/MuseoSansRounded-300_Italic_22-webfont-3d049c181522b798e179965ccf7ebce629f09267bbf98db4eb1b561d77ef5b8a.woff2) format("woff2"), url(/assets/museo-sans-rounded/MuseoSansRounded-300_Italic_22-webfont-3b7bcb29fd2896903b78d553dc84bc3432362dce28b70253d8ae9b1fe7fddee2.woff) format("woff"), url(/assets/museo-sans-rounded/MuseoSansRounded-300_Italic_22-webfont-61749b2076c6d5aca90d6ed13504346d2e7033fb968a99c2a6fc2b7864b56eb0.ttf) format("truetype"), url(/assets/museo-sans-rounded/MuseoSansRounded-300_Italic_22-webfont-c8a57199b442c64a44969cdb458d91061fc17b65396218fcaad69bc703991e94.svg#museo_sans_rounded300_italic) format("svg");
-    font-weight: 300;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'museo-sans-rounded';
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-500-webfont-5349eadb45935d943a5433aff730a426a310fd7bdf4aa8be36d758e9dcf0970a.eot);
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-500-webfont-5349eadb45935d943a5433aff730a426a310fd7bdf4aa8be36d758e9dcf0970a.eot?#iefix) format("embedded-opentype"), url(/assets/museo-sans-rounded/MuseoSansRounded-500-webfont-56d885c1b14efccefc2380dbe178810255ab3cbb62736167b0b331c1a781b653.woff2) format("woff2"), url(/assets/museo-sans-rounded/MuseoSansRounded-500-webfont-d2ea0aa26871608fc6d6a191b59e33cc9ea5e5526336b0aaf694d1f336569397.woff) format("woff"), url(/assets/museo-sans-rounded/MuseoSansRounded-500-webfont-d786de05b3eabb8188bc9dd1ce551fab02c4373eeb345657f55e6ed2cedd073f.ttf) format("truetype"), url(/assets/museo-sans-rounded/MuseoSansRounded-500-webfont-af89f7cdb2ba8f025a9b45e07418f1af09072af8e0166e7acd95bbb57ef33404.svg#museo_sans_rounded500) format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'museo-sans-rounded';
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-500_Italic_22-webfont-7757a7c4a5f3de3f03be7115c77b6c9bf99c3c9c32fe5883061f503002b8cbe5.eot);
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-500_Italic_22-webfont-7757a7c4a5f3de3f03be7115c77b6c9bf99c3c9c32fe5883061f503002b8cbe5.eot?#iefix) format("embedded-opentype"), url(/assets/museo-sans-rounded/MuseoSansRounded-500_Italic_22-webfont-a427151bb58fc7f6c851fd51b3014e79f801d23f71f116f947a1aaa2d3d2d768.woff2) format("woff2"), url(/assets/museo-sans-rounded/MuseoSansRounded-500_Italic_22-webfont-f492eccc50fbd8d60890e1c2b19a8b98d9a96bb4d5d40fa728eca16d401a3548.woff) format("woff"), url(/assets/museo-sans-rounded/MuseoSansRounded-500_Italic_22-webfont-c3f3f3e2307e8c59868acb1a9dd66a2537029833d10d9c027fb2607f55cb3b0e.ttf) format("truetype"), url(/assets/museo-sans-rounded/MuseoSansRounded-500_Italic_22-webfont-bd42b0f9ff1087c4529fe7b955c945ddf947eadd29037576963609bbff96860a.svg#museo_sans_rounded500_italic) format("svg");
-    font-weight: normal;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'museo-sans-rounded';
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-700-webfont-ae780296b4799b600b8eb79381ba8248d7a40c9e738e93d5a0c04ba0fc8b916f.eot);
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-700-webfont-ae780296b4799b600b8eb79381ba8248d7a40c9e738e93d5a0c04ba0fc8b916f.eot?#iefix) format("embedded-opentype"), url(/assets/museo-sans-rounded/MuseoSansRounded-700-webfont-bf5c611b1341d233f77b7a12d1e5ef6140373c68edbae6e357a5fac0cff45059.woff2) format("woff2"), url(/assets/museo-sans-rounded/MuseoSansRounded-700-webfont-91f73cdd3cfd6491748d0ee3b4faaffd9cfce15106b67a337ea0369d799ce899.woff) format("woff"), url(/assets/museo-sans-rounded/MuseoSansRounded-700-webfont-7feeba5337bcb2fcbbd28dc627c1b77454012e3c65918cdc0f351a7a01f03a59.ttf) format("truetype"), url(/assets/museo-sans-rounded/MuseoSansRounded-700-webfont-318eb852995ed352ee682d8f4a3cfa09fe9d8380aebfaec96610ea22e97f82fa.svg#museo_sans_rounded700) format("svg");
-    font-weight: 700;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'museo-sans-rounded';
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-700_Italic_22-webfont-d9a489061580fc313c922a9eefd1f86c9ed6ac9a807cfad3916eba945a01a79b.eot);
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-700_Italic_22-webfont-d9a489061580fc313c922a9eefd1f86c9ed6ac9a807cfad3916eba945a01a79b.eot?#iefix) format("embedded-opentype"), url(/assets/museo-sans-rounded/MuseoSansRounded-700_Italic_22-webfont-6788dab3e5b24b8923464bdb7020783b3fdb2f702db0dc01bf910da2f9e20c5a.woff2) format("woff2"), url(/assets/museo-sans-rounded/MuseoSansRounded-700_Italic_22-webfont-d14f77b212a704b0fafbc4fc49a807cedd7882c41f5784744e4074c3a9dabf4a.woff) format("woff"), url(/assets/museo-sans-rounded/MuseoSansRounded-700_Italic_22-webfont-b5dec26e890bef3fecd7b3e10f66a293c8559a5d0c3dbf42fa08ae4b80c9e2f5.ttf) format("truetype"), url(/assets/museo-sans-rounded/MuseoSansRounded-700_Italic_22-webfont-3717e9b8dea3e1bae37e054e8d2154de31e19deabedc0041c4300852f2c55efd.svg#museo_sans_rounded700_italic) format("svg");
-    font-weight: 700;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'museo-sans-rounded';
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-900-webfont-fedc2fd5cc6b9bc0d621df2440441cef550b79aaac2bc23dd1695750b8f81e69.eot);
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-900-webfont-fedc2fd5cc6b9bc0d621df2440441cef550b79aaac2bc23dd1695750b8f81e69.eot?#iefix) format("embedded-opentype"), url(/assets/museo-sans-rounded/MuseoSansRounded-900-webfont-13d72c943813a8e0740ad73dd618e461dacbb66a832247501a14227f573b12c0.woff2) format("woff2"), url(/assets/museo-sans-rounded/MuseoSansRounded-900-webfont-4f0069d6f8f65b0f3d3450187f7c6d7a3904d94d62caee27ba9292ecf0d50abd.woff) format("woff"), url(/assets/museo-sans-rounded/MuseoSansRounded-900-webfont-e4d7eac0282573c2080fedc1ec9ffc810b334549350e9bd4d64370595c8834a3.ttf) format("truetype"), url(/assets/museo-sans-rounded/MuseoSansRounded-900-webfont-400ada51e8a7bfbe324ef89a65a223719d120c6e0b1955fb08a09a4919037dd5.svg#museo_sans_rounded900) format("svg");
-    font-weight: 900;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'museo-sans-rounded';
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-900_Italic_22-webfont-a5c2114e024f409488887e374b760098d75690c20a38a5ec1ff44440b42b6d1d.eot);
-    src: url(/assets/museo-sans-rounded/MuseoSansRounded-900_Italic_22-webfont-a5c2114e024f409488887e374b760098d75690c20a38a5ec1ff44440b42b6d1d.eot?#iefix) format("embedded-opentype"), url(/assets/museo-sans-rounded/MuseoSansRounded-900_Italic_22-webfont-7d22199a9e26a7feed75cf1a5f9eaec5152145f1f1e4bdeb3cbe75757b4c38c0.woff2) format("woff2"), url(/assets/museo-sans-rounded/MuseoSansRounded-900_Italic_22-webfont-24089ea65dcfdb06613ee7fa241612ba6a778325973d5f4875e1dc9b796ccffd.woff) format("woff"), url(/assets/museo-sans-rounded/MuseoSansRounded-900_Italic_22-webfont-18d682a549ed277c0d0637b098d197e2c59718f771bbac6e3f1ec8847a922131.ttf) format("truetype"), url(/assets/museo-sans-rounded/MuseoSansRounded-900_Italic_22-webfont-f81a5d7e46b02b05d3d5a1c8ea0c47682635bfc717897db18f7a173ceeb5495f.svg#museo_sans_rounded900_italic) format("svg");
-    font-weight: 900;
-    font-style: italic;
-}
+
+
 .bg-white {
     background: #fff;
 }
@@ -741,7 +677,7 @@ ul {
     margin-top: 3.125rem !important;
 }
 .pt6-lg {
-    padding-top: 3.125rem !important;
+    padding-top: 9rem !important;
 }
 }
 .mb7 {
@@ -763,7 +699,7 @@ ul {
 }
 }
 .pt10 {
-    padding-top: 9.376rem !important;
+    padding-top: 0rem !important;
 }.ma0 {
     margin: 0 !important;
 }
@@ -1029,7 +965,7 @@ h1 {
 }
 }@media screen and (min-width: 1200px) {
     .section {
-    padding: 150px 0;
+    padding: 70px 0;
 }
 }
 a.img-link:hover, a.img-link:active, a.img-link:focus {
@@ -1166,3 +1102,4 @@ p {
     margin: 0 auto 2rem auto;
 }
 }
+
