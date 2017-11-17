@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+	         
+	         
+	             
+	            * {
+	       box-sizing: border-box;
+	      }
+
+	      body {
+	       background-color: ;
+	      }
+
+	      #regForm {
+	       background-color: #ffffff;
+	       margin:  aut;
+	       font-family:
+	       padding: 0px;
+	       width: ;
+	       min-width: 300px;
+	      }
+
+	      h1 {
+	       text-align: center;  
+	      }
+
+	      input {
+	       padding: 0px;
+	       width: 100%;
+	       font-size: px;
+	       font-family: 
+	       border: 1px solid #aaaaaa;
+	      }
+
+	      /* Mark input boxes that gets an error on validation: */
+	      input.invalid {
+	       background-color: #ffdddd;
+	      }
+
+	      /* Hide all steps by default: */
+	      .tab {
+	       display: none;
+	      }
+	       
+	      }
+
+	      button:hover {
+	       opacity: 0.8;
+	      }
+
+	      #prevBtn {
+	       background-color: ;
+	      }
+
+	      /* Make circles that indicate the steps of the form: */
+	      .step {
+	       height: 15px;
+	       width: 15px;
+	       margin: 0 2px;
+	       background-color: #bbbbbb;
+	       border: none;  
+	       border-radius: 50%;
+	       display: inline-block;
+	       opacity: 0.5;
+	      }
+
+	      .step.active {
+	       opacity: 1;
+	      }
+
+	      /* Mark the steps that are finished and valid: */
+	      .step.finish {
+	       background-color: #4CAF50;
+	      }
+	       
+	       dt, dd { float: left }
+	       dt { clear:both }
+	        
+	</style>
+	<title></title>
+</head>
+<body>
+	<div class="header" style="text-align: center;margin-top: 2%;"><img height="30px" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTE0cHgiIGhlaWdodD0iMzVweCIgdmlld0JveD0iMCAwIDExNCAzNSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTE0IDM1IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGZpbGw9IiM1RUFGRTQiIGQ9Ik0xNS40NDYsMTYuNTMxYzEuMzkxLTEuMjExLDMuMTg1LTIuMDY0LDQuODktMi4wNjRjMi43ODEsMCw1LjIwNCwxLjQ4LDYuODE5LDMuODEzDQoJCWMxLjU3LTIuMzMzLDQuMDgyLTMuODEzLDYuODE5LTMuODEzYzQuOCwwLDguNzAzLDQuNTc2LDguNzAzLDEwLjI3M3Y5LjYwMWgtNS4wMjRWMjQuNzRjMC0yLjc4MS0xLjc1LTUuMjQ4LTQuMzA3LTUuMjQ4DQoJCWMtMi41MTIsMC00LjE3MiwyLjUxMi00LjI2Miw0LjkzNXY5LjkxNGgtNS4wMjRWMjQuNzRjMC0yLjc4MS0xLjc5NC01LjI0OC00LjMwNy01LjI0OGMtMi4xOTgsMC0zLjU4OSwxLjcwNC00LjEyNywzLjcyM3YxMS4xMjYNCgkJaC01LjM4M1YxNS4wMDZoNC4zNTJMMTUuNDQ2LDE2LjUzMXoiLz4NCjwvZz4NCjxnPg0KCTxwYXRoIGZpbGw9IiM1RUFGRTQiIGQ9Ik00OC41OTYsMTYuNzEzYzEuNTI1LTEuMzQ2LDMuNTQ0LTIuMjQzLDUuNTE4LTIuMjQzYzUuMjA0LDAsOS40NjYsNC41NzYsOS40NjYsMTAuMjczdjkuNjAxaC01LjQ3NHYtOS42MDENCgkJYzAtMi43ODEtMS45NzMtNS4yNDgtNC42NjUtNS4yNDhjLTIuNjkxLDAtNC42NjYsMi40NjctNC42NjYsNS4yNDh2OS42MDFoLTUuNjUyVjE1LjAwOWg0LjU3Nkw0OC41OTYsMTYuNzEzeiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZmlsbD0iIzVFQUZFNCIgZD0iTTY5LjE0LDE2LjUzM2MxLjM5MS0xLjIxMSwzLjE4Ni0yLjA2NCw0Ljg5LTIuMDY0YzIuNzgxLDAsNS4yMDQsMS40OCw2LjgxOSwzLjgxMw0KCQljMS41Ny0yLjMzMyw0LjA4Mi0zLjgxMyw2LjgxOC0zLjgxM2M0LjgwMSwwLDguNzAzLDQuNTc2LDguNzAzLDEwLjI3M3Y5LjYwMWgtNS4wMjR2LTkuNjAxYzAtMi43ODEtMS43NDktNS4yNDgtNC4zMDctNS4yNDgNCgkJYy0yLjUxMiwwLTQuMTcyLDIuNTEyLTQuMjYyLDQuOTM1djkuOTE0aC01LjAyNHYtOS42MDFjMC0yLjc4MS0xLjc5NC01LjI0OC00LjMwNy01LjI0OGMtMi4xOTgsMC0zLjU4OSwxLjcwNC00LjEyNywzLjcyM3YxMS4xMjYNCgkJaC01LjM4NFYxNS4wMDhoNC4zNTJMNjkuMTQsMTYuNTMzeiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZmlsbD0iIzVFQUZFNCIgZD0iTTk2Ljk4NywzNC4zNDRWMC45NjdoNS43NDJ2MzMuMzc2SDk2Ljk4N3oiLz4NCjwvZz4NCjwvc3ZnPg0K" width="100px"></div>
+	<hr style="width: 50%;">
+	<div class="container col-sm-6">
+		<div class="header text-center">
+			<h3 class="title" style="font-weight: 300;">Lets get you onboard</h3>
+			<p class="category" style="font-weight: 100;">This information will let us know more about you.</p>
+		</div>
+        
+        <!--- First Tab Begins Here -->
+        <div class="tab">
+		<div class="card card-default" style="margin-top: 1%;margin-bottom: 2%">
+			<div class="card-body" style="font-weight: 900">
+				<form action="" id="regForm" name="regForm">
+						<h4 style="font-size: 15px;font-weight: 900;">Company Info.</h4>
+						<div class="row">
+							<div class="col">
+								<input class="form-control" placeholder="DBA (optional)" type="text">
+							</div>
+							<div class="col">
+								<label class="mr-sm-2" for="inlineFormCustomSelect">Business Type</label> <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+									<option selected>
+										Choose...
+									</option>
+									<option value="1">
+										One
+									</option>
+									<option value="2">
+										Two
+									</option>
+									<option value="3">
+										Three
+									</option>
+								</select>
+							</div>
+							<div class="col-sm-12" style="margin-top: 1%">
+								<input class="form-control" placeholder="Street Address" type="text">
+							</div>
+							<div class="col-sm-6" style="margin-top: 1%">
+								<input class="form-control" placeholder="City" type="text">
+							</div>
+							<div class="col-sm-3" style="margin-top: 1%">
+								<input class="form-control" placeholder="State" type="text">
+							</div>
+							<div class="col-sm-3" style="margin-top: 1%">
+								<input class="form-control" placeholder="Zip" type="number">
+							</div>
+							<div class="col-sm-12" style="margin-top: 1%">
+								<input class="form-control" placeholder="Contact Number" type="text">
+							</div>
+						</div>
+						<h4 style="font-size: 15px;font-weight: 900;margin-top: 3%">Tax Info.</h4>
+						<div class="row">
+							<div class="col-sm-6" style="margin-top: 1%">
+								<input class="form-control" placeholder="EIN Number" type="text">
+								<p style="font-weight: 200;font-size: 11px">Located on form 941 (00-0000000)</p>
+							</div>
+							<div class="col-sm-6" style="margin-top: 1%">
+								<input class="form-control" placeholder="Tax ID Number" type="text">
+								<p style="font-size: 11px;font-weight: 200">Found on any MN Department of Revenue documents.</p>
+							</div>
+							<div class="col-sm-12" style="margin-top: 1%">
+								<input class="form-control" placeholder="MN Unemployement Insurance Number" type="text">
+								<p style="font-size: 11px; font-weight: 200;">Located on Tax Rate Notice mailed to you.</p>
+							</div>
+						</div>
+						<h4 style="font-size: 15px;font-weight: 900;margin-top: 3%">Banking Info.</h4>
+						<div class="row">
+							<div class="col-sm-6">
+								<label class="" style="font-weight: 200;">Payment Method</label> <select class="custom-select" id="inlineFormCustomSelect">
+									<option selected>
+										Checking
+									</option>
+									<option value="1">
+										Savings
+									</option>
+								</select>
+							</div>
+							<div class="col-sm-6" style="margin-top: 1%">
+								<input class="form-control" placeholder="Account Holder Name" type="text">
+							</div>
+							<div class="col-sm-6" style="margin-top: 1%">
+								<input class="form-control" placeholder="Routing Number" type="text">
+							</div>
+							<div class="col-sm-6" style="margin-top: 1%">
+								<input class="form-control" placeholder="Account Number" type="text">
+							</div>
+						</div>
+						<div class="alert alert-info" role="alert" style="margin-top: 3%">
+							<strong>Heads up!</strong> To verify your account we will send you two small deposits.
+						</div>
+				</form>
+			</div>
+		</div>
+        </div>
+        
+        <!--- Second Tab Starts Here =-->
+        
+        <div class="tab">
+		<div class="card card-default" style="margin-top: 1%;margin-bottom: 2%">
+			<div class="card-body" style="font-weight: 900">
+				<form action="" id="regForm" name="regForm">
+						<h4 style="font-size: 15px;font-weight: 900;margin-bottom: 2%">Confirm Your Payroll Schedule.</h4>
+						<div class="row">
+							<div class="col-sm-4">
+								<label class="" style="font-weight: 200;">Every</label> <select class="custom-select" id="inlineFormCustomSelect">
+									<option selected>
+										Week
+									</option>
+									<option value="1">
+										Two Weeks
+									</option>
+									<option value="1">
+										Month
+									</option>
+								</select>
+							</div>
+							<div class="col-sm-8">
+								<div class="form-group">
+									<div class='input-group date' id='datetimepicker1'>
+										<input class="form-control" type='text'> <span class="input-group-addon"><span class="fa fa-calendar"></span></span> 
+										<script>
+										                                  $(function () {
+										                                      $('#datetimepicker1').datetimepicker();
+										                                  });
+										</script>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="alert alert-success" role="alert">
+							Your first Pay Period begins on the "Date" and ends on "Date". Your first pay date will be on the "Date".
+						</div>
+						<hr>
+						<h4 style="font-size: 15px;font-weight: 900;margin-bottom: 2%">Authorize us to file and pay taxes on your behalf.</h4>
+						<h6 style="font-size: 12px">By signing below, you are agreeing to the IRS Reporting Agent Authorization Agreement and Minnesota Power of Attorney.</h6>
+						<div class="row">
+							<div class="col-sm-6" style="margin-top: 1%">
+								<input class="form-control" placeholder="EIN Tax Number" type="text">
+							</div>
+							<div class="col-sm-6" style="margin-top: 1%">
+								<input class="form-control" placeholder="TaxPayer Name" type="text">
+							</div>
+							<div class="col-sm-4" style="margin-top: 1%">
+								<input class="form-control" placeholder="Signer First Name" type="text">
+							</div>
+							<div class="col-sm-4" style="margin-top: 1%">
+								<input class="form-control" placeholder="Signer Last Name" type="text">
+							</div>
+							<div class="col-sm-4" style="margin-top: 1%">
+								<input class="form-control" placeholder="Title (ex. Founder)" type="text">
+							</div>
+							<div class="col-sm-6" style="margin-top: 1%">
+								<input class="form-control" placeholder="Date of Birth" type="text">
+							</div>
+							<div class="col-sm-6" style="margin-top: 1%">
+								<input class="form-control" placeholder="SSN" type="text">
+							</div>
+							<div class="col-sm-12" style="margin-top: 1%">
+								<input class="form-control" placeholder="Signiture" type="text">
+							</div>
+						</div>
+				</form>
+			</div>
+		</div>
+        </div>
+        
+        <!--- Third Tab Starts Here =-->
+        
+        <div class="tab">
+		<h4 style="text-align: center;font-size: 19px;font-weight: 900;">Review</h4>
+		<h4 style="text-align: ;font-size: 16px;font-weight: 200;">Review The Information</h4>
+		<div class="card card-default" style="margin-top: 1%;margin-bottom: 2%">
+			<form action="" id="regForm" name="regForm">
+					<button class="btn btn-link float-right" type="button">Edit</button>
+					<div class="container" style="padding: 3%">
+						<dl class="">
+							<dt class="name" style="width: 55%;font-weight: 900;color: grey;">DBA:</dt>
+							<dd class="value" style="font-weight: 200;color: grey;">Minumul</dd>
+							<dt class="name" style="width: 55%;font-weight: 900;color: grey;">Street Address</dt>
+							<dd class="value" style="font-weight: 200;color: grey;">754 Lexington Pkwy</dd>
+							<dt class="name" style="width: 55%;font-weight: 900;color: grey;">City</dt>
+							<dd class="value" style="font-weight: 200;color: grey;">St. Paul</dd>
+							<dt class="name" style="width: 55%;font-weight: 900;color: grey;">State</dt>
+							<dd class="value" style="font-weight: 200;color: grey;">MN</dd>
+							<dt class="name" style="width: 55%;font-weight: 900;color: grey;">Zip</dt>
+							<dd class="value" style="font-weight: 200;color: grey;">55116</dd>
+						</dl>
+					</div>
+			</form>
+		</div>
+        
+    
+    
+	<h4 style="text-align: ;font-size: 16px;font-weight: 200;">Tax Information</h4>
+	<div class="card card-default" style="margin-top: 1%;margin-bottom: 2%">
+		<form action="" id="regForm" name="regForm">
+				<button class="btn btn-link float-right" type="button">Edit</button>
+				<div class="container" style="padding: 3%">
+					<dl class="">
+						<dt class="name" style="width: 55%;font-weight: 900;color: grey;">EIN Number</dt>
+						<dd class="value" style="font-weight: 200;color: grey;">00-0000000</dd>
+						<dt class="name" style="width: 55%;font-weight: 900;color: grey;">Tax Id Number</dt>
+						<dd class="value" style="font-weight: 200;color: grey;">0000000</dd>
+						<dt class="name" style="width: 55%;font-weight: 900;color: grey;">MN Unemployment Insurance Number</dt>
+						<dd class="value" style="font-weight: 200;color: grey;">000000000</dd>
+					</dl>
+				</div>
+		</form>
+	</div>
+        
+        
+        
+    
+	<h4 style="text-align:;font-size: 16px;font-weight: 200;">Banking Information</h4>
+	<div class="card card-default" style="margin-top: 1%;margin-bottom: 2%">
+		<form action="" id="regForm" name="regForm">
+				<button class="btn btn-link float-right" type="button">Edit</button>
+				<div class="container" style="padding: 3%">
+					<dl class="">
+						<dt class="name" style="width: 55%;font-weight: 900;color: grey;">Payment Method</dt>
+						<dd class="value" style="font-weight: 200;color: grey;">Checking</dd>
+						<dt class="name" style="width: 55%;font-weight: 900;color: grey;">Account Holder</dt>
+						<dd class="value" style="font-weight: 200;color: grey;">Elias Mekuria</dd>
+						<dt class="name" style="width: 55%;font-weight: 900;color: grey;">Routing Number</dt>
+						<dd class="value" style="font-weight: 200;color: grey;">000000000</dd>
+						<dt class="name" style="width: 55%;font-weight: 900;color: grey;">Account Number</dt>
+						<dd class="value" style="font-weight: 200;color: grey;">0000000000</dd>
+					</dl>
+				</div>
+		</form>
+	</div>
+        
+        
+        
+    
+	<h4 style="text-align:;font-size: 16px;font-weight: 200;">Payroll Schedule</h4>
+	<div class="card card-default" style="margin-top: 1%;margin-bottom: 2%">
+		<form action="" id="regForm" name="regForm">
+				<button class="btn btn-link float-right" type="button">Edit</button>
+				<div class="container" style="padding: 3%">
+					<dl class="">
+						<dt class="name" style="width: 55%;font-weight: 900;color: grey;">Every</dt>
+						<dd class="value" style="font-weight: 200;color: grey;">2 Weeks</dd>
+						<dt class="name" style="width: 55%;font-weight: 900;color: grey;">Starting</dt>
+						<dd class="value" style="font-weight: 200;color: grey;">December 1st, 2017</dd>
+						<dt class="name" style="width: 55%;font-weight: 900;color: grey;">First Pay Date</dt>
+						<dd class="value" style="font-weight: 200;color: grey;">December 15th,2017</dd>
+					</dl>
+				</div>
+		</form>
+	</div>
+        </div>
+        
+        <div class="tab">
+        <div class="card card-default" style="margin-top: 1%;margin-bottom: 2%">
+        <form action="" id="regForm" name="regForm">
+        <div class="container" style="padding-bottom: 4%">
+        <h4 style="text-align: center;font-weight: 200;padding: 2%">Simple Pricing Breakdown</h4>
+        <div class="row">
+        <div class=" col-sm-6">
+            <p style="display: flex;justify-content: center;align-items: center;font-weight: 100;font-size: 50px;margin: 0%;">$55 </p>    
+            <p style="text-align: center;font-weight: 100;">per month</p>
+        </div>
+        <div class=" col-sm-6">
+            <div class="">
+                <p style="display: inline;font-weight: 900;">Employees:</p>
+                <p style="display: inline">22</p>
+            </div>
+            <div class="">
+                <p style="display: inline;font-weight: 900;">Charged:</p>
+                <p style="display: inline">Every 30 days</p>
+            </div>
+            <div class="">
+                <p style="display: inline;font-weight: 900;">First Charge Date:</p>
+                <p style="display: inline">December 15th, 2017 <br> <small>(15 Days after enrollment)</small></p>
+            </div>
+        </div>
+             
+            </div>
+             <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> By Checking this box you agree to the terms and conditions. 
+                </label>
+            </div>
+        </div>
+        </form>   
+        </div>
+        </div>
+        
+        
+    <!--- Dots That Show Progress =-->
+	<div style="text-align:center;">
+		<span class="step"></span> <span class="step"></span> <span class="step"></span> <span class="step"></span>
+	</div>
+    
+    <!--- Buttons =-->
+	<button class="btn btn-primary float-left" id="prevBtn" onclick="nextPrev(-1)" style="margin-bottom: 10%;" type="button">Previous</button> <button class="btn btn-primary float-right" id="nextBtn" onclick="nextPrev(1)" style="margin-bottom: 10%" type="button">Next</button>
+    
+    </div>
+    
+	<script>
+        
+    
+	         
+	             var currentTab = 0; // Current tab is set to be the first tab (0)
+	      showTab(currentTab); // Display the current tab
+
+	      function showTab(n) {
+	       // This function will display the specified tab of the form ...
+	       var x = document.getElementsByClassName("tab");
+	       x[n].style.display = "block";
+	       // ... and fix the Previous/Next buttons:
+	       if (n == 0) {
+	         document.getElementById("prevBtn").style.display = "none";
+	       } else {
+	         document.getElementById("prevBtn").style.display = "inline";
+	       }
+	       if (n == (x.length - 1)) {
+	         document.getElementById("nextBtn").innerHTML = "Submit";
+	       } else {
+	         document.getElementById("nextBtn").innerHTML = "Next";
+	       }
+	       // ... and run a function that displays the correct step indicator:
+	       fixStepIndicator(n)
+	      }
+
+	      function nextPrev(n) {
+	       // This function will figure out which tab to display
+	       var x = document.getElementsByClassName("tab");
+	       // Exit the function if any field in the current tab is invalid:
+	       if (n == 1 && !validateForm()) return false;
+	       // Hide the current tab:
+	       x[currentTab].style.display = "none";
+	       // Increase or decrease the current tab by 1:
+	       currentTab = currentTab + n;
+	       // if you have reached the end of the form... :
+	       if (currentTab >= x.length) {
+	         //...the form gets submitted:
+	         document.getElementById("regForm").submit();
+	         return false;
+	       }
+	       // Otherwise, display the correct tab:
+	       showTab(currentTab);
+	      }
+
+	      function validateForm() {
+	       // This function deals with validation of the form fields
+	       var x, y, i, valid = true;
+	       x = document.getElementsByClassName("tab");
+	       y = x[currentTab].getElementsByTagName("input");
+	       // A loop that checks every input field in the current tab:
+	       for (i = 0; i < y.length; i++) {
+	         // If a field is empty...
+	         if (y[i].value == "") {
+	           // add an "invalid" class to the field:
+	           y[i].className += " invalid";
+	           // and set the current valid status to false:
+	           valid = false;
+	         }
+	       }
+	       // If the valid status is true, mark the step as finished and valid:
+	       if (valid) {
+	         document.getElementsByClassName("step")[currentTab].className += " finish";
+	       }
+	       return valid; // return the valid status
+	      }
+
+	      function fixStepIndicator(n) {
+	       // This function removes the "active" class of all steps...
+	       var i, x = document.getElementsByClassName("step");
+	       for (i = 0; i < x.length; i++) {
+	         x[i].className = x[i].className.replace(" active", "");
+	       }
+	       //... and adds the "active" class to the current step:
+	       x[n].className += " active";
+	      }
+	             
+	</script>
+</body>
+</html>
