@@ -7,7 +7,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -28,7 +28,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" style="font-size: 14px">
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -177,7 +177,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Company Information
+          <span class="badge badge-primary">Company Information</span>
         <small></small>
       </h1>
       
@@ -188,10 +188,12 @@
 
         
         <hr>
-        <div class="col-lg-10">
-        <div class="box">
-            <div class="box-body">
-                <div class="content">
+        <div class="container">
+        <div class="row">
+        <div class="col-sm-9">
+        <div class="card">
+            <div class="card-body">
+                
                 <div class="" style="text-align: right">
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-info">
                 Edit?
@@ -377,21 +379,22 @@
                 </table>
                 </div>
                 </div>
-                </div>
             </div>
 </div>
-<div class="col-lg-2 offset-lg-10">
-<div class="box">
-<div class="box-body">
-<h5>Company Documents</h5>
-<div style="margin-bottom: 2%">
-<button type="button" class="btn btn-success">Direct Deposit Auth. </button>
-    </div>
-<button type="button" class="btn btn-success">Form 8655</button>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Company Documents</h5>
+                    <div style="margin-bottom: 2%">
+                        <button type="button" class="btn btn-success">Direct Deposit Auth. </button>
+                    </div>
+                    <button type="button" class="btn btn-success">Form 8655</button>
     
+                </div>
+            </div>
+        </div>  
 </div>
 </div>
-</div>        
         
     </section>
     <!-- /.content -->
