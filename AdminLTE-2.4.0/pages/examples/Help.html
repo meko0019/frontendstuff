@@ -6,16 +6,572 @@
   <title>Help</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  
+ <style>
+    
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+html,
+body {
+    height: 100%
+}
+
+body {
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+    overflow-y: auto
+}
+
+.wrapper {
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto
+}
+
+.wrapper:before,
+.wrapper:after {
+    content: " ";
+    display: table
+}
+
+.wrapper:after {
+    clear: both
+}
+
+.content-wrapper,
+.main-footer {
+    -webkit-transition: -webkit-transform .3s ease-in-out, margin .3s ease-in-out;
+    -moz-transition: -moz-transform .3s ease-in-out, margin .3s ease-in-out;
+    -o-transition: -o-transform .3s ease-in-out, margin .3s ease-in-out;
+    transition: transform .3s ease-in-out, margin .3s ease-in-out;
+    margin-left: 230px;
+    z-index: 820
+}
+
+@media (max-width:767px) {
+    .content-wrapper,
+    .main-footer {
+        margin-left: 0
+    }
+}
+
+.content-wrapper {
+    min-height: 100%;
+    background-color: white;
+    z-index: 800
+}
+
+.main-footer {
+    background: #fff;
+    padding: 15px;
+    color: #444;
+    border-top: 1px solid #d2d6de
+}
+
+.hold-transition .content-wrapper,
+.hold-transition .main-footer,
+.hold-transition .main-sidebar,
+.hold-transition .main-header .navbar,
+.hold-transition .main-header .logo {
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none
+}
+
+.content {
+    min-height: 250px;
+    padding: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+h1,
+h3,
+h6 {
+    font-family: 'Source Sans Pro', sans-serif
+}
+
+a {
+    color: #3c8dbc
+}
+
+a:hover,
+a:active,
+a:focus {
+    outline: none;
+    text-decoration: none;
+    color: #72afd2
+}
+
+.main-header {
+    position: relative;
+    max-height: 100px;
+    z-index: 1030
+}
+
+.main-header .navbar {
+    -webkit-transition: margin-left .3s ease-in-out;
+    -o-transition: margin-left .3s ease-in-out;
+    transition: margin-left .3s ease-in-out;
+    margin-bottom: 0;
+    margin-left: 230px;
+    border: none;
+    min-height: 50px;
+    border-radius: 0
+}
+
+.main-header .navbar-custom-menu {
+    float: right
+}
+
+@media (max-width:991px) {
+    .main-header .navbar-custom-menu a {
+        color: inherit;
+        background: transparent
+    }
+}
+
+.main-header .sidebar-toggle {
+    float: left;
+    background-color: transparent;
+    background-image: none;
+    padding: 15px 15px;
+    font-family: fontAwesome
+}
+
+.main-header .sidebar-toggle:before {
+    content: "\f0c9"
+}
+
+.main-header .sidebar-toggle:hover {
+    color: #fff
+}
+
+.main-header .sidebar-toggle:focus,
+.main-header .sidebar-toggle:active {
+    background: transparent
+}
+
+.main-header .sidebar-toggle .icon-bar {
+    display: none
+}
+
+.main-header .logo {
+    -webkit-transition: width .3s ease-in-out;
+    -o-transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    display: block;
+    float: left;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    width: 230px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 0 15px;
+    font-weight: 300;
+    overflow: hidden
+}
+
+.main-header .logo .logo-mini {
+    display: none
+}
+
+.content-header {
+    position: relative;
+    padding: 15px 15px 0 15px
+}
+
+.content-header>h1 {
+    margin: 0;
+    font-size: 24px
+}
+
+.content-header>h1>small {
+    font-size: 15px;
+    display: inline-block;
+    padding-left: 4px;
+    font-weight: 300
+}
+
+@media (max-width:991px) {
+    .navbar-custom-menu .navbar-nav>li {
+        float: left
+    }
+    .navbar-custom-menu .navbar-nav {
+        margin: 0;
+        float: left
+    }
+    .navbar-custom-menu .navbar-nav>li>a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        line-height: 20px
+    }
+}
+
+@media (max-width:767px) {
+    .main-header {
+        position: relative
+    }
+    .main-header .logo,
+    .main-header .navbar {
+        width: 100%;
+        float: none
+    }
+    .main-header .navbar {
+        margin: 0
+    }
+    .main-header .navbar-custom-menu {
+        float: right
+    }
+}
+
+.main-sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 50px;
+    min-height: 100%;
+    width: 230px;
+    z-index: 810;
+    -webkit-transition: -webkit-transform .3s ease-in-out, width .3s ease-in-out;
+    -moz-transition: -moz-transform .3s ease-in-out, width .3s ease-in-out;
+    -o-transition: -o-transform .3s ease-in-out, width .3s ease-in-out;
+    transition: transform .3s ease-in-out, width .3s ease-in-out
+}
+
+@media (max-width:767px) {
+    .main-sidebar {
+        padding-top: 100px
+    }
+}
+
+@media (max-width:767px) {
+    .main-sidebar {
+        -webkit-transform: translate(-230px, 0);
+        -ms-transform: translate(-230px, 0);
+        -o-transform: translate(-230px, 0);
+        transform: translate(-230px, 0)
+    }
+}
+
+.sidebar {
+    padding-bottom: 10px
+}
+
+.sidebar-form input:focus {
+    border-color: transparent
+}
+
+.user-panel {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    overflow: hidden
+}
+
+.user-panel:before,
+.user-panel:after {
+    content: " ";
+    display: table
+}
+
+.user-panel:after {
+    clear: both
+}
+
+.sidebar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.sidebar-menu>li {
+    position: relative;
+    margin: 0;
+    padding: 0
+}
+
+.sidebar-menu>li>a {
+    padding: 12px 5px 12px 15px;
+    display: block
+}
+
+.sidebar-menu>li>a>.fa {
+    width: 20px
+}
+
+.sidebar-menu li.header {
+    padding: 10px 25px 10px 15px;
+    font-size: 12px
+}
+
+.sidebar-menu li>a>.pull-right-container>.fa-angle-left {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin-right: 10px;
+    -webkit-transition: transform .5s ease;
+    -o-transition: transform .5s ease;
+    transition: transform .5s ease
+}
+
+.sidebar-menu,
+.main-sidebar .user-panel,
+.sidebar-menu>li.header {
+    white-space: nowrap;
+    overflow: hidden
+}
+
+.sidebar-menu:hover {
+    overflow: visible
+}
+
+.sidebar-form,
+.sidebar-menu>li.header {
+    overflow: hidden;
+    text-overflow: clip
+}
+
+.sidebar-menu li>a {
+    position: relative
+}
+
+.sidebar-menu li>a>.pull-right-container {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -7px
+}
+
+.control-sidebar-bg {
+    position: fixed;
+    z-index: 1000;
+    bottom: 0
+}
+
+.control-sidebar-bg {
+    top: 0;
+    right: -230px;
+    width: 230px;
+    -webkit-transition: right .3s ease-in-out;
+    -o-transition: right .3s ease-in-out;
+    transition: right .3s ease-in-out
+}
+
+.navbar-custom-menu>.navbar-nav>li {
+    position: relative
+}
+
+@media (max-width:991px) {
+    .navbar-custom-menu>.navbar-nav {
+        float: right
+    }
+    .navbar-custom-menu>.navbar-nav>li {
+        position: static
+    }
+}
+
+.form-control {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #d2d6de
+}
+
+.form-control:focus {
+    border-color: #3c8dbc;
+    box-shadow: none
+}
+
+.form-control::-moz-placeholder,
+.form-control:-ms-input-placeholder,
+.form-control::-webkit-input-placeholder {
+    color: #bbb;
+    opacity: 1
+}
+
+.form-control:not(select) {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
+}
+
+.btn {
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid transparent
+}
+
+.btn.btn-flat {
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-width: 1px
+}
+
+.btn:active {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
+}
+
+.btn:focus {
+    outline: none
+}
+
+.nav>li>a:hover,
+.nav>li>a:active,
+.nav>li>a:focus {
+    color: #444;
+    background: #f7f7f7
+}
+
+@media print {
+    .main-sidebar,
+    .main-header,
+    .content-header {
+        display: none !important
+    }
+    .content-wrapper,
+    .main-footer {
+        margin-left: 0 !important;
+        min-height: 0 !important;
+        -webkit-transform: translate(0, 0) !important;
+        -ms-transform: translate(0, 0) !important;
+        -o-transform: translate(0, 0) !important;
+        transform: translate(0, 0) !important
+    }
+}
+
+
+
+/* Second code */
+
+.skin-blue .main-header .navbar {
+    background-color: white
+}
+
+.skin-blue .main-header .navbar .nav>li>a {
+    color: #5eafe4;
+}
+
+.skin-blue .main-header .navbar .nav>li>a:hover,
+.skin-blue .main-header .navbar .nav>li>a:active,
+.skin-blue .main-header .navbar .nav>li>a:focus {
+    background: rgba(0, 0, 0, 0.1);
+    color: black
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle {
+    color: #5eafe4;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+    color: #f6f6f6;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle {
+    color: #5eafe4;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+    background-color: lightgray
+}
+
+.skin-blue .main-header .logo {
+    background-color: white;
+    color: black;
+    border-bottom: 0 solid transparent
+}
+
+.skin-blue .main-header .logo:hover {
+    background-color: lightgrey
+}
+
+.skin-blue .content-header {
+    background: transparent
+}
+
+.skin-blue .wrapper,
+.skin-blue .main-sidebar {
+    background-color: white;
+}
+
+.skin-blue .sidebar-menu>li.header {
+    color: #4b646f;
+    background: white;
+}
+
+.skin-blue .sidebar-menu>li>a {
+    border-left: 3px solid transparent
+}
+
+.skin-blue .sidebar-menu>li:hover>a {
+    color: black;
+    background: white
+}
+
+.skin-blue .sidebar a {
+    color: #b8c7ce
+}
+
+.skin-blue .sidebar a:hover {
+    text-decoration: none
+}
+
+.skin-blue .sidebar-form {
+    border-radius: 3px;
+    border: 1px solid #374850;
+    margin: 10px 10px
+}
+
+.skin-blue .sidebar-form input[type="text"],
+.skin-blue .sidebar-form .btn {
+    box-shadow: none;
+    background-color: white;
+    border: 1px solid transparent;
+    height: 35px
+}
+
+.skin-blue .sidebar-form input[type="text"] {
+    color: #666;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 2px
+}
+
+.skin-blue .sidebar-form input[type="text"]:focus,
+.skin-blue .sidebar-form input[type="text"]:focus+.input-group-btn .btn {
+    background-color: #fff;
+    color: #666
+}
+
+.skin-blue .sidebar-form input[type="text"]:focus+.input-group-btn .btn {
+    border-left-color: #fff
+}
+
+.skin-blue .sidebar-form .btn {
+    color: #999;
+    border-top-left-radius: 0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 0
+}
+    
+    
+    </style>
+    
+    
+    
 </head>
 <body class="hold-transition skin-blue sidebar-mini" style="font-size: 14px;">
 <!-- Site wrapper -->
@@ -23,7 +579,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.html" class="logo">
+    <a href="" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMjBweCIgaGVpZ2h0PSIxMHB4IiB2aWV3Qm94PSIwIDAgMjAgMTAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDEwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiM1RUFGRTQiIGQ9Ik01LjQzMywxLjkyMWMwLjU3Ni0wLjUwMiwxLjMyLTAuODU1LDIuMDI4LTAuODU1YzEuMTU0LDAsMi4xNTgsMC42MTMsMi44MjgsMS41ODENCgljMC42NTItMC45NjgsMS42OTMtMS41ODEsMi44MjgtMS41ODFjMS45OTEsMCwzLjYxLDEuODk3LDMuNjEsNC4yNnYzLjk4MmgtMi4wODRWNS4zMjZjMC0xLjE1My0wLjcyNi0yLjE3Ny0xLjc4Ni0yLjE3Nw0KCWMtMS4wNDMsMC0xLjczLDEuMDQyLTEuNzY4LDIuMDQ3djQuMTEySDkuMDA1VjUuMzI2YzAtMS4xNTMtMC43NDUtMi4xNzctMS43ODctMi4xNzdjLTAuOTEyLDAtMS40ODksMC43MDctMS43MTIsMS41NDV2NC42MTRIMy4yNzMNCgl2LTguMDJoMS44MDVMNS40MzMsMS45MjF6Ii8+DQo8L3N2Zz4NCg=="></span>
       <!-- logo for regular state and mobile devices -->
@@ -41,13 +597,7 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-         
-          <!-- Notifications: style can be found in dropdown.less -->
           
-          <!-- Tasks: style can be found in dropdown.less -->
-      
-          <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               
@@ -199,7 +749,7 @@
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
+  
 
   <footer class="main-footer">
     
@@ -207,20 +757,15 @@
     reserved.
   </footer>
 
-  <!-- Control Sidebar -->
- 
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
-    
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+
+  <!--- Updated Js Files ---->  
+ <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>  
 
-<script src="../../dist/js/adminlte.min.js"></script>
+
 
 <script>
   $(document).ready(function () {
