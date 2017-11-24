@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+  <nav class="navbar">
+    <div class="nav navbar-inline " style="margin-top: 2%">
+      <img class="mr-auto" alt="minumul-logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTE0cHgiIGhlaWdodD0iMzVweCIgdmlld0JveD0iMCAwIDExNCAzNSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTE0IDM1IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGZpbGw9IiM1RUFGRTQiIGQ9Ik0xNS40NDYsMTYuNTMxYzEuMzkxLTEuMjExLDMuMTg1LTIuMDY0LDQuODktMi4wNjRjMi43ODEsMCw1LjIwNCwxLjQ4LDYuODE5LDMuODEzDQoJCWMxLjU3LTIuMzMzLDQuMDgyLTMuODEzLDYuODE5LTMuODEzYzQuOCwwLDguNzAzLDQuNTc2LDguNzAzLDEwLjI3M3Y5LjYwMWgtNS4wMjRWMjQuNzRjMC0yLjc4MS0xLjc1LTUuMjQ4LTQuMzA3LTUuMjQ4DQoJCWMtMi41MTIsMC00LjE3MiwyLjUxMi00LjI2Miw0LjkzNXY5LjkxNGgtNS4wMjRWMjQuNzRjMC0yLjc4MS0xLjc5NC01LjI0OC00LjMwNy01LjI0OGMtMi4xOTgsMC0zLjU4OSwxLjcwNC00LjEyNywzLjcyM3YxMS4xMjYNCgkJaC01LjM4M1YxNS4wMDZoNC4zNTJMMTUuNDQ2LDE2LjUzMXoiLz4NCjwvZz4NCjxnPg0KCTxwYXRoIGZpbGw9IiM1RUFGRTQiIGQ9Ik00OC41OTYsMTYuNzEzYzEuNTI1LTEuMzQ2LDMuNTQ0LTIuMjQzLDUuNTE4LTIuMjQzYzUuMjA0LDAsOS40NjYsNC41NzYsOS40NjYsMTAuMjczdjkuNjAxaC01LjQ3NHYtOS42MDENCgkJYzAtMi43ODEtMS45NzMtNS4yNDgtNC42NjUtNS4yNDhjLTIuNjkxLDAtNC42NjYsMi40NjctNC42NjYsNS4yNDh2OS42MDFoLTUuNjUyVjE1LjAwOWg0LjU3Nkw0OC41OTYsMTYuNzEzeiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZmlsbD0iIzVFQUZFNCIgZD0iTTY5LjE0LDE2LjUzM2MxLjM5MS0xLjIxMSwzLjE4Ni0yLjA2NCw0Ljg5LTIuMDY0YzIuNzgxLDAsNS4yMDQsMS40OCw2LjgxOSwzLjgxMw0KCQljMS41Ny0yLjMzMyw0LjA4Mi0zLjgxMyw2LjgxOC0zLjgxM2M0LjgwMSwwLDguNzAzLDQuNTc2LDguNzAzLDEwLjI3M3Y5LjYwMWgtNS4wMjR2LTkuNjAxYzAtMi43ODEtMS43NDktNS4yNDgtNC4zMDctNS4yNDgNCgkJYy0yLjUxMiwwLTQuMTcyLDIuNTEyLTQuMjYyLDQuOTM1djkuOTE0aC01LjAyNHYtOS42MDFjMC0yLjc4MS0xLjc5NC01LjI0OC00LjMwNy01LjI0OGMtMi4xOTgsMC0zLjU4OSwxLjcwNC00LjEyNywzLjcyM3YxMS4xMjYNCgkJaC01LjM4NFYxNS4wMDhoNC4zNTJMNjkuMTQsMTYuNTMzeiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZmlsbD0iIzVFQUZFNCIgZD0iTTk2Ljk4NywzNC4zNDRWMC45NjdoNS43NDJ2MzMuMzc2SDk2Ljk4N3oiLz4NCjwvZz4NCjwvc3ZnPg0K" height="30px" width="100px">
+      
+    <div class="hidden-xs-down">
+        <ul class="nav" style="font-size: 14px;">
+      <li style="padding-top: 3px"><a href="#" style="padding: 10px;color: lightgray;">Features</a></li>  
+      <li style="padding-top: 3px"><a href="#" style="padding: 10px;color: lightgray">Pricing</a></li>  
+      <li style="padding-top: 3px"><a href="#" style="padding: 10px;color: lightgray">Login</a></li>  
+        <li><span class="badge badge-primary" style="padding: 10px;background-color: #5eafe4;"><a href="#" style="padding: 10px;color: white;">Sign Up</a></span></li>  
+       
+      
+      </ul>
+        </div>
+      </div>       
+  </nav>
+</div> 
+    <div>
+    <h2 class="col-sm-12" style="text-align: center; margin-top: 5%; font-weight: 900;" >Privacy Policy</h2>
+    </div>
+    <hr style="width: 50%">
+    <div class="container">
+        <div class="row">
+
+        
+        <h6 class="col-sm-10 offset-sm-2" style="font-weight: 900;"> Effective December 1st, 2017 </h6>
+        <div class="col-sm-8 offset-sm-2">
+        <p class="" style="margin-bottom: %;">Protecting your private information is our priority. This Statement of Privacy applies to “http://www.minumul.com/” and Minumul and governs data collection and usage. For the purposes of this Privacy Policy, unless otherwise noted, all references to Minumul include “http://www.minumul.com/”. The Minumul websites is a Payroll Service. By using the Minumul website, you consent to the data practices described in this statement.
+        </p>
+            
+        <h6 class="" style="font-weight: 900;">Privacy Compliance Certification </h6> 
+        <p style="margin-bottom: %;">
+            Minumul has “Certification Here”
+        </p>
+            
+            
+        <h6 class="" style="font-weight: 900;">Collection of your Personal Information</h6> 
+        <p style="margin-bottom:%;">
+            In order to better provide you with products and services offered on our Site, Minumul may collect personally identifiable information such as your:
+            </p>
+            
+            <p style="margin-bottom: %;margin-left: 4%;">
+(1) First & Last Name 
+(2) Mailing Address 
+(3) E-mail Address 
+(4) Phone Number 
+(5) Employer 
+(6) Job Title 
+(7) Personal Accounting Information 
+(8) & more.
+            </p>
+<p style="margin-bottom: %;">
+If you purchase Minumul’s products and services, we collect billing and credit card information. This information is used to complete the purchase transaction. </p>
+            
+
+Minumul may also collect anonymous demographic information, whish is not unique to you, such as your:
+
+    <p style="margin-bottom: %;margin-left: 4%;margin-top: 2%;">        
+(1) Age
+            </p>
+            
+            <p>
+Please keep in mind that if you directly disclose personally information or personally sensitive data through Minumul’s public message boards, this information may be collected and used by others. </p> 
+            <p>
+
+We do not collect any personal information about you unless you voluntarily provide it to us. However, you may be required to provide certain personal information to us when you elect to use certain products or services available on the Site. These may include: (a) registering for an account on our site; (b) entering a sweepstakes or contest sponsored by us or one of our partners; (c) signing up for special offers from selected third parties; (d) sending us an email message; (e) submitting your credit card or other payment information when ordering and purchasing products and services on our Site. To wit, we will use your information for, but not limited to, communicating with you in relation to services and/or products you have requested from us. We also may gather additional personal or non-personal information in the future.
+            </p>
+            
+            
+             <h6 class="" style="font-weight: 900;">Use of your Personal Information </h6> 
+            <p>Minumul collects and uses your personal information to operate its website(s) and deliver the services you have requested.
+            </p>  
+                <p>
+                    Minumul may also use your personally identifiable information to inform you of other products or services available from Minumul and its affiliates. </p>
+            
+            
+            <h6 class="" style="font-weight: 900;">Sharing Information with Third Parties</h6> 
+            <p>Minumul does not sell, rent or lease its customer lists to third parties.</p>
+            <p>Minumul may share data with trusted partners to help perform statistical analysis, send you email or postal mail, provide customer support, or arrange for deliveries. All such third parties are prohibited from using your personal information except to provide these services to Minumul, and they are required to maintain the confidentiality of your information. </p>
+            <p>Minumul may disclose your personal information, without notice, if required to do so by law or in the good faith belief that such action is necessary to: (a) confirm to the edicts of the law or comply with legal process served on Minumul or the site; (b) protect and defend the rights or property of Minumul; and/or (c) act under exigent circumstances to protect the personal safety of users of Minumul, or the public.
+</p>
+            
+            <h6 class="" style="font-weight: 900;">Tracking User Behavior</h6>
+            <p>Minumul may keep track of the websites and pages our users visit within Minumul, in order to determine what Minumul services are the most popular. This data is used to deliver customized content and advertising within Minumul to customers whose behavior indicates that they are interested in a particular subject area. 
+</p>
+            
+            <h6 class="" style="font-weight: 900;">Automatically Collected Information</h6>
+            <p>Information about your computer hardware and software may be automatically collected by Minumul. This information can include: your IP address, browser type, domain names, access times and referring websites addresses. This information is used for the operation of the service, to maintain quality of the service, and to provide general statistics regarding use of the Minumul website.
+</p>
+            
+            <h6 class="" style="font-weight: 900;">Security of your Personal Information</h6>
+            <p>Minumul secures your personal information from unauthorized access, use, or disclosure. Minumul uses the following methods for this purpose:
+</p>
+            <p style="margin-bottom: %;margin-left: 4%;margin-top: 2%;">
+                (1) SSL Protocol 
+(2) Enter in More Services
+
+            
+            </p>
+            
+            <p>When personal information (such as a credit card number) is transmitted to other websites, it is protected through the use of encryption, such as the Secure Sockets Layer (SSL) protocol. We strive to take appropriate security measures to protect against unauthorized access to or alteration of your personal information. Unfortunately, no data transmission over the Internet or any wireless networks can be guaranteed to be 100% secure. As a result, while we strive to protect your personal information, you acknowledge that: (a) there are security and privacy limitations inherent to the Internet which are beyond our control; and (b) security, integrity, and privacy of any and all information and data exchanged between you and us through this Site cannot be guaranteed.  
+</p>
+            
+           <h6 class="" style="font-weight: 900;">Children Under Thirteen</h6> 
+            <p>Minumul does not knowingly collect personally identifiable information from children under the age of thirteen. If you are under the age of thirteen, you must ask your parent or guardian for permission to use this website.
+</p>
+            
+            <h6 class="" style="font-weight: 900;">E-mail Communications</h6> 
+            <p>From time to time, Minumul may contact you via email for the purpose of providing announcements, promotional offers, alerts, confirmations, surveys, and/or other general communication. In order to improve our Services, we may receive a notification when you open an email from Minumul or click on a link therein. 
+</p>
+            
+            <p>If you would like to stop receiving marketing or promotional communications via email from Minumul, you may opt out of such communications by clicking on the UNSUBSCRIBE button. 
+</p>
+            
+             <h6 class="" style="font-weight: 900;">Changes to this Statement</h6> 
+            <p>Minumul reserves the right to change this Privacy Policy from time to time. We will notify you about significant changes in the way we treat personal information by sending a notice to the primary email address specified in your account, by placing a prominent notice on our site, and/or by updating any privacy information on this page. Your continued use of the Site and/or
+Services available through this Site after such modifications will constitute your: (a) acknowledge of the modified Privacy Policy; and (b) agreement to abide and be bound by that Policy.
+</p>
+            
+            
+            <h6 class="" style="font-weight: 900;">Contact Information</h6> 
+            <p>Minumul welcomes your questions or comments regarding this Statement of Privacy. If you believe that Minumul has not adhered to this Statement, please contact Minumul at:
+</p>
+            
+            <p>Minumul LLC<br>
+                7777 Something Road <br>
+                Saint Paul, Minnesota 55116
+            </p>
+            
+            <p>Email Address: <br>
+minumulllc@gmail.com
+</p>
+            
+            <p>Telephone Number <br>
+651-000-0000
+</p>
+            <p>Effective as of December 01, 2017</p>
+        </div>
+        </div>
+        </div>
+    
+    
+    
+</body>
+</html>
