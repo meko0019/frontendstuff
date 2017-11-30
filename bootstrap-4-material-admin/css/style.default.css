@@ -1469,7 +1469,7 @@ section.dashboard-counts div[class*='col-']:last-of-type .item {
 * ==========================================================
 */
 footer.main-footer {
-  background: #2f333e;
+  background: white;
   color: #fff;
   padding: 10px;
 }
