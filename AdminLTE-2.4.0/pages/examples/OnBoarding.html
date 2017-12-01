@@ -128,24 +128,34 @@
 								<input class="form-control" placeholder="State" type="text">
 							</div>
 							<div class="col-sm-3" style="margin-top: 1%">
-								<input class="form-control" placeholder="Zip" type="number">
+								<input class="form-control" placeholder="Zip" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "5">
 							</div>
 							<div class="col-sm-12" style="margin-top: 1%">
-								<input class="form-control" placeholder="Contact Number" type="text">
+								<input class="form-control" placeholder="Contact Number" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "10">
 							</div>
 						</div>
 						<h4 style="font-size: 15px;font-weight: 900;margin-top: 3%">Tax Info.</h4>
 						<div class="row">
 							<div class="col-sm-6" style="margin-top: 1%">
-								<input class="form-control" placeholder="EIN Number" type="text">
+								<input class="form-control" placeholder="EIN Number" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "9">
 								<p style="font-weight: 200;font-size: 11px">Located on form 941 (00-0000000)</p>
 							</div>
 							<div class="col-sm-6" style="margin-top: 1%">
-								<input class="form-control" placeholder="Tax ID Number" type="text">
+								<input class="form-control" placeholder="Tax ID Number" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "9">
 								<p style="font-size: 11px;font-weight: 200">Found on any MN Department of Revenue documents.</p>
 							</div>
 							<div class="col-sm-12" style="margin-top: 1%">
-								<input class="form-control" placeholder="MN Unemployement Insurance Number" type="text">
+								<input class="form-control" placeholder="MN Unemployement Insurance Number" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "12">
 								<p style="font-size: 11px; font-weight: 200;">Located on Tax Rate Notice mailed to you.</p>
 							</div>
 						</div>
@@ -165,10 +175,14 @@
 								<input class="form-control" placeholder="Account Holder Name" type="text">
 							</div>
 							<div class="col-sm-6" style="margin-top: 1%">
-								<input class="form-control" placeholder="Routing Number" type="text">
+								<input class="form-control" placeholder="Routing Number" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "9">
 							</div>
 							<div class="col-sm-6" style="margin-top: 1%">
-								<input class="form-control" placeholder="Account Number" type="text">
+								<input class="form-control" placeholder="Account Number" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "17">
 							</div>
 						</div>
 						<div class="alert alert-info" role="alert" style="margin-top: 3%">
@@ -221,7 +235,9 @@
 						<h6 style="font-size: 12px">By signing below, you are agreeing to the IRS Reporting Agent Authorization Agreement and Minnesota Power of Attorney.</h6>
 						<div class="row">
 							<div class="col-sm-6" style="margin-top: 1%">
-								<input class="form-control" placeholder="EIN Tax Number" type="text">
+								<input class="form-control" placeholder="EIN Tax Number" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "9">
 							</div>
 							<div class="col-sm-6" style="margin-top: 1%">
 								<input class="form-control" placeholder="TaxPayer Name" type="text">
@@ -236,10 +252,13 @@
 								<input class="form-control" placeholder="Title (ex. Founder)" type="text">
 							</div>
 							<div class="col-sm-6" style="margin-top: 1%">
-								<input class="form-control" placeholder="Date of Birth" type="text">
+								<input class="form-control" placeholder="Date of Birth" type="date">
+                                <p style="font-size: 11px;font-weight: 200;margin-bottom: 0%;">Date Of Birth.</p>
 							</div>
 							<div class="col-sm-6" style="margin-top: 1%">
-								<input class="form-control" placeholder="SSN" type="text">
+								<input class="form-control" placeholder="SSN" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "9">
 							</div>
 							<div class="col-sm-12" style="margin-top: 1%">
 								<input class="form-control" placeholder="Signiture" type="text">
