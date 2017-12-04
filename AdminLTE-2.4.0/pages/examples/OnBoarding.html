@@ -103,18 +103,18 @@
 								<input class="form-control" placeholder="DBA (optional)" type="text">
 							</div>
 							<div class="col">
-								<label class="mr-sm-2" for="inlineFormCustomSelect">Business Type</label> <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+								<label class="mr-sm-2" for="inlineFormCustomSelect" style="font-weight: 100;">Business Type</label> <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
 									<option selected>
-										Choose...
+										LLC
 									</option>
 									<option value="1">
-										One
+										S-Corp
 									</option>
 									<option value="2">
-										Two
+										C-Corp
 									</option>
 									<option value="3">
-										Three
+										Sole Propietor
 									</option>
 								</select>
 							</div>
@@ -141,19 +141,19 @@
 						<h4 style="font-size: 15px;font-weight: 900;margin-top: 3%">Tax Info.</h4>
 						<div class="row">
 							<div class="col-sm-6" style="margin-top: 1%">
-								<input class="form-control" placeholder="EIN Number" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+								<input class="form-control" placeholder="EIN Number" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
     type = "number"
     maxlength = "9">
 								<p style="font-weight: 200;font-size: 11px">Located on form 941 (00-0000000)</p>
 							</div>
 							<div class="col-sm-6" style="margin-top: 1%">
-								<input class="form-control" placeholder="Tax ID Number" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+								<input class="form-control" placeholder="Tax ID Number" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
     type = "number"
     maxlength = "9">
 								<p style="font-size: 11px;font-weight: 200">Found on any MN Department of Revenue documents.</p>
 							</div>
 							<div class="col-sm-12" style="margin-top: 1%">
-								<input class="form-control" placeholder="MN Unemployement Insurance Number" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+								<input class="form-control" placeholder="MN Unemployement Insurance Number" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
     type = "number"
     maxlength = "12">
 								<p style="font-size: 11px; font-weight: 200;">Located on Tax Rate Notice mailed to you.</p>
@@ -161,8 +161,8 @@
 						</div>
 						<h4 style="font-size: 15px;font-weight: 900;margin-top: 3%">Banking Info.</h4>
 						<div class="row">
-							<div class="col-sm-6">
-								<label class="" style="font-weight: 200;">Payment Method</label> <select class="custom-select" id="inlineFormCustomSelect">
+							<div class="col-sm-6" style="margin-top: 1%">
+								<label class="" style="font-weight: 100;">Payment Method</label> <select class="custom-select" id="inlineFormCustomSelect">
 									<option selected>
 										Checking
 									</option>
@@ -175,12 +175,12 @@
 								<input class="form-control" placeholder="Account Holder Name" type="text">
 							</div>
 							<div class="col-sm-6" style="margin-top: 1%">
-								<input class="form-control" placeholder="Routing Number" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+								<input class="form-control" placeholder="Routing Number" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
     type = "number"
     maxlength = "9">
 							</div>
 							<div class="col-sm-6" style="margin-top: 1%">
-								<input class="form-control" placeholder="Account Number" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+								<input class="form-control" placeholder="Account Number" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
     type = "number"
     maxlength = "17">
 							</div>
