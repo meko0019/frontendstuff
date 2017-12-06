@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+     <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="John Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
+    
+    <style>
+    
+        html{
+	
+	overflow:scroll;
+}
+
+body{
+	font:15px/1.3 , sans-serif;
+	color: #4f4f4f;
+	z-index:1;
+}
+
+a, a:visited {
+	outline:none;
+	color:#389dc1;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+
+
+
+/*-------------------------
+	The clocks
+--------------------------*/
+
+
+#clock{
+	width:370px;
+	
+	margin: auto;
+	position:relative;
+	
+}
+
+/*
+#clock:after{
+	content:'';
+	position:absolute;
+	width:400px;
+	height:20px;
+	border-radius:100%;
+	left:50%;
+	margin-left:-200px;
+	bottom:2px;
+	z-index:1;
+}
+*/
+
+#clock .display{
+	text-align:center;
+	padding: 30px 21px 70px;
+	border-radius:6px;
+	position:relative;
+	height: 54px;
+}
+
+
+/*-------------------------
+	Light color theme
+--------------------------*/
+
+
+#clock.light{
+	background-color:#f3f3f3;
+	color:#272e38;
+}
+
+#clock.light:after{
+	box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+#clock.light .digits div span{
+	background-color:#272e38;
+	border-color:#272e38;
+}
+
+#clock.light .digits div.dots:before,
+#clock.light .digits div.dots:after{
+	background-color:#272e38;
+}
+
+#clock.light .alarm{
+	background:url('./images/alarm_light.jpg');
+}
+
+#clock.light .display{
+	
+	box-shadow:0 1px 1px rgba(0,0,0,0.08) inset, 0 1px 1px #fafafa;
+}
+
+
+/*-------------------------
+	Dark color theme
+--------------------------*/
+
+
+#clock.dark{
+	background-color:#272e38;
+	color:#cacaca;
+}
+
+
+body.dark{
+	background-color:#272e38;
+	color:#cacaca;
+}
+
+#clock.dark:after{
+	box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+#clock.dark .digits div span{
+	background-color:#cacaca;
+	border-color:#cacaca;
+}
+
+#clock.dark .alarm{
+	background:url('./images/alarm_dark.jpg');
+}
+
+#clock.dark .display{
+	background-color:#0f1620;
+	box-shadow:0 1px 1px rgba(0,0,0,0.08) inset, 0 1px 1px #2d3642;
+}
+
+#clock.dark .digits div.dots:before,
+#clock.dark .digits div.dots:after{
+	background-color:#cacaca;
+}
+
+
+/*-------------------------
+	The Digits
+--------------------------*/
+
+
+#clock .digits div{
+	text-align:left;
+	position:relative;
+	width: 28px;
+	height:50px;
+	display:inline-block;
+	margin:0 4px;
+}
+
+#clock .digits div span{
+	opacity:0;
+	position:absolute;
+
+	-webkit-transition:1s;
+	-moz-transition:1s;
+	transition:0.5s;
+}
+
+#clock .digits div span:before,
+#clock .digits div span:after{
+	content:'';
+	position:absolute;
+	width:0;
+	height:0;
+	border:5px solid transparent;
+}
+
+#clock .digits .d1{			height:5px;width:16px;top:0;left:6px;}
+#clock .digits .d1:before{	border-width:0px 5px 5px 0px;border-right-color:inherit;left:-5px;}
+#clock .digits .d1:after{	border-width:0 0 5px 5px;border-left-color:inherit;right:-5px;}
+
+#clock .digits .d2{			height:5px;width:16px;top:24px;left:6px;}
+#clock .digits .d2:before{	border-width:3px 4px 2px;border-right-color:inherit;left:-8px;}
+#clock .digits .d2:after{	border-width:3px 4px 2px;border-left-color:inherit;right:-8px;}
+
+#clock .digits .d3{			height:5px;width:16px;top:48px;left:6px;}
+#clock .digits .d3:before{	border-width:5px 5px 0 0;border-right-color:inherit;left:-5px;}
+#clock .digits .d3:after{	border-width:5px 0 0 5px;border-left-color:inherit;right:-5px;}
+
+#clock .digits .d4{			width:5px;height:14px;top:7px;left:0;}
+#clock .digits .d4:before{	border-width:0 5px 5px 0;border-bottom-color:inherit;top:-5px;}
+#clock .digits .d4:after{	border-width:0 0 5px 5px;border-left-color:inherit;bottom:-5px;}
+
+#clock .digits .d5{			width:5px;height:14px;top:7px;right:0;}
+#clock .digits .d5:before{	border-width:0 0 5px 5px;border-bottom-color:inherit;top:-5px;}
+#clock .digits .d5:after{	border-width:5px 0 0 5px;border-top-color:inherit;bottom:-5px;}
+
+#clock .digits .d6{			width:5px;height:14px;top:32px;left:0;}
+#clock .digits .d6:before{	border-width:0 5px 5px 0;border-bottom-color:inherit;top:-5px;}
+#clock .digits .d6:after{	border-width:0 0 5px 5px;border-left-color:inherit;bottom:-5px;}
+
+#clock .digits .d7{			width:5px;height:14px;top:32px;right:0;}
+#clock .digits .d7:before{	border-width:0 0 5px 5px;border-bottom-color:inherit;top:-5px;}
+#clock .digits .d7:after{	border-width:5px 0 0 5px;border-top-color:inherit;bottom:-5px;}
+
+
+
+/* 1 */
+
+#clock .digits div.one .d5,
+#clock .digits div.one .d7{
+	opacity:1;
+}
+
+/* 2 */
+
+#clock .digits div.two .d1,
+#clock .digits div.two .d5,
+#clock .digits div.two .d2,
+#clock .digits div.two .d6,
+#clock .digits div.two .d3{
+	opacity:1;
+}
+
+/* 3 */
+
+#clock .digits div.three .d1,
+#clock .digits div.three .d5,
+#clock .digits div.three .d2,
+#clock .digits div.three .d7,
+#clock .digits div.three .d3{
+	opacity:1;
+}
+
+/* 4 */
+
+#clock .digits div.four .d5,
+#clock .digits div.four .d2,
+#clock .digits div.four .d4,
+#clock .digits div.four .d7{
+	opacity:1;
+}
+
+/* 5 */
+
+#clock .digits div.five .d1,
+#clock .digits div.five .d2,
+#clock .digits div.five .d4,
+#clock .digits div.five .d3,
+#clock .digits div.five .d7{
+	opacity:1;
+}
+
+/* 6 */
+
+#clock .digits div.six .d1,
+#clock .digits div.six .d2,
+#clock .digits div.six .d4,
+#clock .digits div.six .d3,
+#clock .digits div.six .d6,
+#clock .digits div.six .d7{
+	opacity:1;
+}
+
+
+/* 7 */
+
+#clock .digits div.seven .d1,
+#clock .digits div.seven .d5,
+#clock .digits div.seven .d7{
+	opacity:1;
+}
+
+/* 8 */
+
+#clock .digits div.eight .d1,
+#clock .digits div.eight .d2,
+#clock .digits div.eight .d3,
+#clock .digits div.eight .d4,
+#clock .digits div.eight .d5,
+#clock .digits div.eight .d6,
+#clock .digits div.eight .d7{
+	opacity:1;
+}
+
+/* 9 */
+
+#clock .digits div.nine .d1,
+#clock .digits div.nine .d2,
+#clock .digits div.nine .d3,
+#clock .digits div.nine .d4,
+#clock .digits div.nine .d5,
+#clock .digits div.nine .d7{
+	opacity:1;
+}
+
+/* 0 */
+
+#clock .digits div.zero .d1,
+#clock .digits div.zero .d3,
+#clock .digits div.zero .d4,
+#clock .digits div.zero .d5,
+#clock .digits div.zero .d6,
+#clock .digits div.zero .d7{
+	opacity:1;
+}
+
+
+/* The dots */
+
+#clock .digits div.dots{
+	width:5px;
+}
+
+#clock .digits div.dots:before,
+#clock .digits div.dots:after{
+	width:5px;
+	height:5px;
+	content:'';
+	position:absolute;
+	left:0;
+	top:14px;
+}
+
+#clock .digits div.dots:after{
+	top:34px;
+}
+
+
+/* Blinking effect */
+
+.blink{
+	animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+	25%{ opacity: 0; }
+}
+
+
+/*-------------------------
+	The Alarm
+--------------------------*/
+
+
+#clock .alarm{
+	width:16px;
+	height:16px;
+	bottom:20px;
+	background:url('../img/alarm_light.jpg');
+	position:absolute;
+	opacity:0.2;
+}
+
+#clock .alarm.active{
+	opacity:1;
+}
+
+
+/*-------------------------
+	Weekdays
+--------------------------*/
+
+
+#clock .weekdays{
+	font-size:12px;
+	position:absolute;
+	width:100%;
+	top:10px;
+	left:0;
+	text-align:center;
+}
+
+
+#clock .weekdays span{
+	opacity:0.2;
+	padding:0 10px;
+}
+
+#clock .weekdays span.active{
+	opacity:1;
+}
+
+
+/*-------------------------
+		AM/PM
+--------------------------*/
+
+
+#clock .ampm{
+	position:absolute;
+	bottom:20px;
+	right:20px;
+	font-size:12px;
+}
+
+
+/*-------------------------
+		Button
+--------------------------*/
+
+
+.button-holder{
+	text-align:center;
+	padding-bottom:100px;
+}
+
+a.button{
+	background-color:#f6a7b3;
+
+	background-image:-webkit-linear-gradient(top, #f6a7b3, #f0a3af);
+	background-image:-moz-linear-gradient(top, #f6a7b3, #f0a3af);
+	background-image:linear-gradient(top, #f6a7b3, #f0a3af);
+
+	border:1px solid #eb9ba7;
+	border-radius:2px;
+
+	box-shadow:0 2px 2px #ccc;
+
+	color:#fff;
+	text-decoration: none !important;
+	padding:15px 20px;
+	display:inline-block;
+	cursor:pointer;
+}
+
+a.button:hover{
+	opacity:0.9;
+}
+
+
+
+button{
+	background-color: #f6a7b3;
+
+	border:1px solid #eb9ba7;
+	border-radius:2px;
+
+	box-shadow:0 2px 2px #ccc;
+
+	color:#fff;
+	text-decoration: none !important;
+	padding:15px 20px;
+	display:inline-block;
+	cursor:pointer;
+	outline: none;
+}
+
+
+/*----------------------------
+	The Demo Footer
+-----------------------------*/
+
+        
+
+
+    
+    
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+  <nav class="navbar">
+    <div class="nav navbar-inline " style="margin-top: 2%">
+      <img class="mr-auto" alt="minumul-logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTE0cHgiIGhlaWdodD0iMzVweCIgdmlld0JveD0iMCAwIDExNCAzNSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTE0IDM1IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGZpbGw9IiM1RUFGRTQiIGQ9Ik0xNS40NDYsMTYuNTMxYzEuMzkxLTEuMjExLDMuMTg1LTIuMDY0LDQuODktMi4wNjRjMi43ODEsMCw1LjIwNCwxLjQ4LDYuODE5LDMuODEzDQoJCWMxLjU3LTIuMzMzLDQuMDgyLTMuODEzLDYuODE5LTMuODEzYzQuOCwwLDguNzAzLDQuNTc2LDguNzAzLDEwLjI3M3Y5LjYwMWgtNS4wMjRWMjQuNzRjMC0yLjc4MS0xLjc1LTUuMjQ4LTQuMzA3LTUuMjQ4DQoJCWMtMi41MTIsMC00LjE3MiwyLjUxMi00LjI2Miw0LjkzNXY5LjkxNGgtNS4wMjRWMjQuNzRjMC0yLjc4MS0xLjc5NC01LjI0OC00LjMwNy01LjI0OGMtMi4xOTgsMC0zLjU4OSwxLjcwNC00LjEyNywzLjcyM3YxMS4xMjYNCgkJaC01LjM4M1YxNS4wMDZoNC4zNTJMMTUuNDQ2LDE2LjUzMXoiLz4NCjwvZz4NCjxnPg0KCTxwYXRoIGZpbGw9IiM1RUFGRTQiIGQ9Ik00OC41OTYsMTYuNzEzYzEuNTI1LTEuMzQ2LDMuNTQ0LTIuMjQzLDUuNTE4LTIuMjQzYzUuMjA0LDAsOS40NjYsNC41NzYsOS40NjYsMTAuMjczdjkuNjAxaC01LjQ3NHYtOS42MDENCgkJYzAtMi43ODEtMS45NzMtNS4yNDgtNC42NjUtNS4yNDhjLTIuNjkxLDAtNC42NjYsMi40NjctNC42NjYsNS4yNDh2OS42MDFoLTUuNjUyVjE1LjAwOWg0LjU3Nkw0OC41OTYsMTYuNzEzeiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZmlsbD0iIzVFQUZFNCIgZD0iTTY5LjE0LDE2LjUzM2MxLjM5MS0xLjIxMSwzLjE4Ni0yLjA2NCw0Ljg5LTIuMDY0YzIuNzgxLDAsNS4yMDQsMS40OCw2LjgxOSwzLjgxMw0KCQljMS41Ny0yLjMzMyw0LjA4Mi0zLjgxMyw2LjgxOC0zLjgxM2M0LjgwMSwwLDguNzAzLDQuNTc2LDguNzAzLDEwLjI3M3Y5LjYwMWgtNS4wMjR2LTkuNjAxYzAtMi43ODEtMS43NDktNS4yNDgtNC4zMDctNS4yNDgNCgkJYy0yLjUxMiwwLTQuMTcyLDIuNTEyLTQuMjYyLDQuOTM1djkuOTE0aC01LjAyNHYtOS42MDFjMC0yLjc4MS0xLjc5NC01LjI0OC00LjMwNy01LjI0OGMtMi4xOTgsMC0zLjU4OSwxLjcwNC00LjEyNywzLjcyM3YxMS4xMjYNCgkJaC01LjM4NFYxNS4wMDhoNC4zNTJMNjkuMTQsMTYuNTMzeiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZmlsbD0iIzVFQUZFNCIgZD0iTTk2Ljk4NywzNC4zNDRWMC45NjdoNS43NDJ2MzMuMzc2SDk2Ljk4N3oiLz4NCjwvZz4NCjwvc3ZnPg0K" height="30px" width="100px">
+      
+    <div class="hidden-xs-down">
+        <ul class="nav" style="font-size: 14px;">
+      <li style="padding-top: 3px"><a href="#" style="padding: 10px;color: lightgray;">Features</a></li>  
+      <li style="padding-top: 3px"><a href="#" style="padding: 10px;color: lightgray">Pricing</a></li>  
+      <li style="padding-top: 3px"><a href="#" style="padding: 10px;color: lightgray">Login</a></li>  
+        <li><span class="badge badge-primary" style="padding: 10px;background-color: #5eafe4;"><a href="#" style="padding: 10px;color: white;">Sign Up</a></span></li>  
+       
+      
+      </ul>
+        </div>
+      </div>       
+  </nav>
+</div> 
+    
+    
+    <div class="container col-sm-6" style="margin-top: 6%;">
+       <div id="clock" class="light">
+    <div class="display">
+      <div class="weekdays"></div>
+      <div class="ampm"></div>
+      <div class="alarm"></div>
+      <div class="digits"></div>
+    </div>
+  </div>
+    
+    
+     
+    
+       
+        
+       
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+
+
+        
+        
+        
+        
+            
+           
+            <input class="form-control" type="text" value="" id="example-text-input" placeholder="Company Name" style="width: 50%;margin:auto;margin-top: 3%;">
+            
+       
+        
+        
+           
+            
+            <input class="form-control" type="text" value="" id="example-text-input" placeholder="Employer Id" style="width: 50%;margin:auto;margin-top: 1%;margin-bottom: 3%;">
+            
+        
+        
+        <button class="btn btn-small btn-primary" style="display: block;margin: auto;margin-bottom: 4%">
+            Clock-In
+        </button>
+        
+        
+    </div>
+    
+    
+    <script>
+    
+        $(function() {
+
+    var clock = $("#clock"),
+      alarm = clock.find('.alarm'),
+      ampm = clock.find('.ampm');
+
+    var digitsToName = "zero one two three four five six seven eight nine".split(" ");
+
+    var digits = {};
+
+    var positions = ['h1', 'h2', ':', 'm1', 'm2', ':', 's1', 's2' ];
+
+    var digitHolder = clock.find('.digits');
+
+    $.each(positions, function(){
+
+      if(this == ":"){
+        digitHolder.append('<div class="dots blink">');
+      }
+      else {
+        var pos = $('<div>');
+
+        for(var i=0;i<7;i++){
+          pos.append('<span class="d' + (i+1) + '">');
+        }
+
+        digits[this] = pos;
+
+        digitHolder.append(pos);
+      }
+
+    });
+
+
+    var dayNames = "SUN MON TUE WED THU FRI SAT".split(' '),
+      dayHolder = clock.find('.weekdays');
+
+
+    $.each(dayNames, function(){
+		dayHolder.append('<span>' + this + '</span>');
+	});
+
+	var weekdays = clock.find('.weekdays span');
+
+
+    (function updateTime(){
+
+      var currTime = moment().format("hhmmssdA");
+
+      digits.h1.attr('class', digitsToName[currTime[0]]);
+      digits.h2.attr('class', digitsToName[currTime[1]]);
+      digits.m1.attr('class', digitsToName[currTime[2]]);
+      digits.m2.attr('class', digitsToName[currTime[3]]);
+      digits.s1.attr('class', digitsToName[currTime[4]]);
+      digits.s2.attr('class', digitsToName[currTime[5]]);
+
+      var day = currTime[6];
+
+
+      weekdays.removeClass('active').eq(day).addClass('active');
+
+
+      ampm.text(currTime[7] + currTime[8]);
+
+      setTimeout(updateTime, 1000);
+    })();
+
+
+    $('.btn').click(function(){
+		    clock.toggleClass('light dark');
+	});
+});
+
+    
+    
+    </script>
+    
+    
+</body>
+</html>
