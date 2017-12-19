@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,900" rel="stylesheet">
     
     
+    
 <style media="screen" type="text/css">
 
     html, body {
@@ -355,6 +356,12 @@ svg {
 	stroke-width: 2;
 }
     
+    @import "compass/css3";
+
+
+
+
+
     
 </style>
 
@@ -393,10 +400,15 @@ svg {
             <img src="Images/The PPL.svg" style="margin-left: 12%;margin-top: 13%;width: auto;">
         </div>  
      
+    
     <div class="arrow-container animated fadeInDown hidden-lg-down">
+        <a href="#1">
   <div class="arrow-2">
-    <i class="fa fa-angle-down"></i>
+      
+    <i class="fa fa-angle-down" ></i>
+      
   </div>
+        </a>    
   <div class="arrow-1 animated hinge infinite zoomIn"></div>
 </div>
 </div>
@@ -428,7 +440,7 @@ svg {
                 
             </div>
             </section>
-    <section class="container" id="Blobs" style="margin-bottom: 15%">
+    <section class="container" id="Blobs" style="margin-bottom: 15%" id="1">
        
         <p class="bgimg" style="text-align:center;font-size: 60px;font-weight: 900;margin-bottom: 0%;margin-top: 6%;font-family: 'Raleway', sans-serif;padding-bottom: 10%">Why <span style="font-weight: 900;color: #61b0e2;text-shadow: 5px 6px lightgrey;font-family: jaapokki, sans-serif; font-size: 73px;">minumul</span>? </p>
         
@@ -635,7 +647,21 @@ transform-origin: 0 0;
         <!-- Price JS -->
         
         
-        
+        <script> $(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+            //the 205 is a fixed header offset
+          scrollTop: target.offset().top - 205
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});</script>
         
            <script>
             var $left = $('.sentance__half.left .inner');
