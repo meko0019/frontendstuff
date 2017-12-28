@@ -7,6 +7,10 @@
     <script>var __adobewebfontsappname__ = "code"</script>
 <script src="https://use.edgefonts.net/lato:n9,i4,n1,i7,i9,n7,i1,i3,n4,n3:all.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 	<style>
 	         
 	         
@@ -88,108 +92,214 @@
         
    
 
-body {
-    background: #fff;
-    font-family: lato,sans-serif;
-    color: #bdc3c7;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.wrapper {
-    width: 400px;
-    margin: 10% auto;
+
+
+
+
+
+.tabs {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+}
+.tabs > li {
+  transition-duration: 1ms;
+  display: table-cell;
+  list-style: none;
+  text-align: center;
+  padding: 20px 20px 25px 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  color: Black;
+}
+.tabs > li:before {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 120%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  transition-duration: 1ms;
+  border-radius: 5px 5px 0 0;
+}
+.tabs > li:hover:before {
+  -webkit-transform: translateY(70%);
+  transform: translateY(70%);
+}
+.tabs > li.active {
+  color: White;
+}
+.tabs > li.active:before {
+  transition-duration: 1ms;
+  background-color: #d3e9f6;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
 }
 
-.content {
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    width: 400px;
+.tab__content {
+  background-color: white;
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+}
+.tab__content > li {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  list-style: none;
+}
+.tab__content > li .content__wrapper {
+  text-align: center;
+  border-radius: 5px;
+  width: 100%;
+  padding: 45px 40px 40px 40px;
+  background-color: #d3e9f6;
 }
 
-.date, .time {
-    color: #bdc3c7;
-    font-weight: 300;
-    font-size: 1.5em;
-    
-}
-
-.date {
-    border-bottom: 2px solid #eee;
-}
-
-.time {
-    font-size: 3em;
-}   
 
 
 
-  
+
 	        
 	</style>
 	<title></title>
 </head>
 <body>
-	<div class="header" style="text-align: center;margin-top: 2%;"><img height="30px" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTE0cHgiIGhlaWdodD0iMzVweCIgdmlld0JveD0iMCAwIDExNCAzNSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTE0IDM1IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGZpbGw9IiM1RUFGRTQiIGQ9Ik0xNS40NDYsMTYuNTMxYzEuMzkxLTEuMjExLDMuMTg1LTIuMDY0LDQuODktMi4wNjRjMi43ODEsMCw1LjIwNCwxLjQ4LDYuODE5LDMuODEzDQoJCWMxLjU3LTIuMzMzLDQuMDgyLTMuODEzLDYuODE5LTMuODEzYzQuOCwwLDguNzAzLDQuNTc2LDguNzAzLDEwLjI3M3Y5LjYwMWgtNS4wMjRWMjQuNzRjMC0yLjc4MS0xLjc1LTUuMjQ4LTQuMzA3LTUuMjQ4DQoJCWMtMi41MTIsMC00LjE3MiwyLjUxMi00LjI2Miw0LjkzNXY5LjkxNGgtNS4wMjRWMjQuNzRjMC0yLjc4MS0xLjc5NC01LjI0OC00LjMwNy01LjI0OGMtMi4xOTgsMC0zLjU4OSwxLjcwNC00LjEyNywzLjcyM3YxMS4xMjYNCgkJaC01LjM4M1YxNS4wMDZoNC4zNTJMMTUuNDQ2LDE2LjUzMXoiLz4NCjwvZz4NCjxnPg0KCTxwYXRoIGZpbGw9IiM1RUFGRTQiIGQ9Ik00OC41OTYsMTYuNzEzYzEuNTI1LTEuMzQ2LDMuNTQ0LTIuMjQzLDUuNTE4LTIuMjQzYzUuMjA0LDAsOS40NjYsNC41NzYsOS40NjYsMTAuMjczdjkuNjAxaC01LjQ3NHYtOS42MDENCgkJYzAtMi43ODEtMS45NzMtNS4yNDgtNC42NjUtNS4yNDhjLTIuNjkxLDAtNC42NjYsMi40NjctNC42NjYsNS4yNDh2OS42MDFoLTUuNjUyVjE1LjAwOWg0LjU3Nkw0OC41OTYsMTYuNzEzeiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZmlsbD0iIzVFQUZFNCIgZD0iTTY5LjE0LDE2LjUzM2MxLjM5MS0xLjIxMSwzLjE4Ni0yLjA2NCw0Ljg5LTIuMDY0YzIuNzgxLDAsNS4yMDQsMS40OCw2LjgxOSwzLjgxMw0KCQljMS41Ny0yLjMzMyw0LjA4Mi0zLjgxMyw2LjgxOC0zLjgxM2M0LjgwMSwwLDguNzAzLDQuNTc2LDguNzAzLDEwLjI3M3Y5LjYwMWgtNS4wMjR2LTkuNjAxYzAtMi43ODEtMS43NDktNS4yNDgtNC4zMDctNS4yNDgNCgkJYy0yLjUxMiwwLTQuMTcyLDIuNTEyLTQuMjYyLDQuOTM1djkuOTE0aC01LjAyNHYtOS42MDFjMC0yLjc4MS0xLjc5NC01LjI0OC00LjMwNy01LjI0OGMtMi4xOTgsMC0zLjU4OSwxLjcwNC00LjEyNywzLjcyM3YxMS4xMjYNCgkJaC01LjM4NFYxNS4wMDhoNC4zNTJMNjkuMTQsMTYuNTMzeiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZmlsbD0iIzVFQUZFNCIgZD0iTTk2Ljk4NywzNC4zNDRWMC45NjdoNS43NDJ2MzMuMzc2SDk2Ljk4N3oiLz4NCjwvZz4NCjwvc3ZnPg0K" width="100px"></div>
-	<hr style="width: 50%;">
+	<div class="header" style="text-align: center;margin-top: 2%;margin-bottom: 5%"><img height="30px" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTE0cHgiIGhlaWdodD0iMzVweCIgdmlld0JveD0iMCAwIDExNCAzNSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTE0IDM1IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGZpbGw9IiM1RUFGRTQiIGQ9Ik0xNS40NDYsMTYuNTMxYzEuMzkxLTEuMjExLDMuMTg1LTIuMDY0LDQuODktMi4wNjRjMi43ODEsMCw1LjIwNCwxLjQ4LDYuODE5LDMuODEzDQoJCWMxLjU3LTIuMzMzLDQuMDgyLTMuODEzLDYuODE5LTMuODEzYzQuOCwwLDguNzAzLDQuNTc2LDguNzAzLDEwLjI3M3Y5LjYwMWgtNS4wMjRWMjQuNzRjMC0yLjc4MS0xLjc1LTUuMjQ4LTQuMzA3LTUuMjQ4DQoJCWMtMi41MTIsMC00LjE3MiwyLjUxMi00LjI2Miw0LjkzNXY5LjkxNGgtNS4wMjRWMjQuNzRjMC0yLjc4MS0xLjc5NC01LjI0OC00LjMwNy01LjI0OGMtMi4xOTgsMC0zLjU4OSwxLjcwNC00LjEyNywzLjcyM3YxMS4xMjYNCgkJaC01LjM4M1YxNS4wMDZoNC4zNTJMMTUuNDQ2LDE2LjUzMXoiLz4NCjwvZz4NCjxnPg0KCTxwYXRoIGZpbGw9IiM1RUFGRTQiIGQ9Ik00OC41OTYsMTYuNzEzYzEuNTI1LTEuMzQ2LDMuNTQ0LTIuMjQzLDUuNTE4LTIuMjQzYzUuMjA0LDAsOS40NjYsNC41NzYsOS40NjYsMTAuMjczdjkuNjAxaC01LjQ3NHYtOS42MDENCgkJYzAtMi43ODEtMS45NzMtNS4yNDgtNC42NjUtNS4yNDhjLTIuNjkxLDAtNC42NjYsMi40NjctNC42NjYsNS4yNDh2OS42MDFoLTUuNjUyVjE1LjAwOWg0LjU3Nkw0OC41OTYsMTYuNzEzeiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZmlsbD0iIzVFQUZFNCIgZD0iTTY5LjE0LDE2LjUzM2MxLjM5MS0xLjIxMSwzLjE4Ni0yLjA2NCw0Ljg5LTIuMDY0YzIuNzgxLDAsNS4yMDQsMS40OCw2LjgxOSwzLjgxMw0KCQljMS41Ny0yLjMzMyw0LjA4Mi0zLjgxMyw2LjgxOC0zLjgxM2M0LjgwMSwwLDguNzAzLDQuNTc2LDguNzAzLDEwLjI3M3Y5LjYwMWgtNS4wMjR2LTkuNjAxYzAtMi43ODEtMS43NDktNS4yNDgtNC4zMDctNS4yNDgNCgkJYy0yLjUxMiwwLTQuMTcyLDIuNTEyLTQuMjYyLDQuOTM1djkuOTE0aC01LjAyNHYtOS42MDFjMC0yLjc4MS0xLjc5NC01LjI0OC00LjMwNy01LjI0OGMtMi4xOTgsMC0zLjU4OSwxLjcwNC00LjEyNywzLjcyM3YxMS4xMjYNCgkJaC01LjM4NFYxNS4wMDhoNC4zNTJMNjkuMTQsMTYuNTMzeiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZmlsbD0iIzVFQUZFNCIgZD0iTTk2Ljk4NywzNC4zNDRWMC45NjdoNS43NDJ2MzMuMzc2SDk2Ljk4N3oiLz4NCjwvZz4NCjwvc3ZnPg0K" width="100px"></div>
+	
+    
 	
     <div class="container">
-    <div class="card col-sm-8 offset-sm-2">
-    <div class="card-body">
-      
-     
+        
+        
+        
+   <section class="container">
+    <div class="col-sm-6 offset-sm-3"> 
+	<ul class="tabs">
+		<li class="active" style="font-weight: 900;">Clock-In</li>
+		<li class="" style="font-weight: 900;">Clock-Out</li>
+		
+	</ul>
 
-    
-            <h3 id="time" class="time" style="text-align: center;"></h3>
-            <h1 id="date" class="date" style="padding-bottom: 5%"></h1>
-            
-       
-    
-    
-  
-
+	<ul class="tab__content">
+		<li class="active">
+			<div class="content__wrapper">
+				
+				
+			
+			</div>
+		</li>
+		<li>
+			<div class="content__wrapper">
+				
+				
+				
+			</div>
+		</li>
+		
+	</ul>
+       </div>
+</section>
         
-        
-    </div>    
+    
     </div>
-        
-    <div class="card col-sm-8" offset-sm-2>
-    <div class="card-body">
-    <p>Name</p>    
-    <hr>
     
-    </div>    
-    </div>   
-    </div>
-    
-    
-<script src="date.js"></script>
 <script>
-var d = new Date();
-var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+    $(document).ready(function(){
+	
+	// Variables
+	var clickedTab = $(".tabs > .active");
+	var tabWrapper = $(".tab__content");
+	var activeTab = tabWrapper.find(".active");
+	var activeTabHeight = activeTab.outerHeight();
+	
+	// Show tab on page load
+	activeTab.show();
+	
+	// Set height of wrapper on page load
+	tabWrapper.height(activeTabHeight);
+	
+	$(".tabs > li").on("click", function() {
+		
+		// Remove class from active tab
+		$(".tabs > li").removeClass("active");
+		
+		// Add class active to clicked tab
+		$(this).addClass("active");
+		
+		// Update clickedTab variable
+		clickedTab = $(".tabs .active");
+		
+		// fade out active tab
+		activeTab.fadeOut(250, function() {
+			
+			// Remove active class all tabs
+			$(".tab__content > li").removeClass("active");
+			
+			// Get index of clicked tab
+			var clickedTabIndex = clickedTab.index();
 
-var date = document.getElementById("date");
-var time = document.getElementById("time");
+			// Add class active to corresponding tab
+			$(".tab__content > li").eq(clickedTabIndex).addClass("active");
+			
+			// update new active tab
+			activeTab = $(".tab__content > .active");
+			
+			// Update variable
+			activeTabHeight = activeTab.outerHeight();
+			
+			// Animate height of wrapper to new tab height
+			tabWrapper.stop().delay(50).animate({
+				height: activeTabHeight
+			}, 500, function() {
+				
+				// Fade in active tab
+				activeTab.delay(50).fadeIn(250);
+				
+			});
+		});
+	});
+	
+	// Variables
+	var colorButton = $(".colors li");
+	
+	colorButton.on("click", function(){
+		
+		// Remove class from currently active button
+		$(".colors > li").removeClass("active-color");
+		
+		// Add class active to clicked button
+		$(this).addClass("active-color");
+		
+		// Get background color of clicked
+		var newColor = $(this).attr("data-color");
+		
+		// Change background of everything with class .bg-color
+		$(".bg-color").css("background-color", newColor);
+		
+		// Change color of everything with class .text-color
+		$(".text-color").css("color", newColor);
+	});
+});
+    </script>    
+<script src="date.js"></script>
 
-function getDate() {
-    date.innerHTML = monthNames[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
-}
-
-function timer() {
-    setTimeout(timer, 1000);
-    var d = new Date();
-    var hours = d.getHours();
-    var minutes = d.getMinutes();
-    var ampm = hours <= 11 ? 'am' : 'pm';
-    var strTime = [hours % 12,
-                  (minutes < 10 ? "0" + minutes : minutes)
-                  ].join(':') + ampm;
-    time.innerHTML = strTime;
-    setTimeout(timer, 1000);
-}
-
-getDate();
-timer();
-    
-</script>
    
 </body>
 </html>
